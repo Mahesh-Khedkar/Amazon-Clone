@@ -1,0 +1,10 @@
+.sliderBody{
+    width: 100%;
+    border: 1px solid red;
+}
+
+.sliderCard{
+    width: 90%;
+    border: 1px solid black !important;
+    margin-left: 20px;
+}

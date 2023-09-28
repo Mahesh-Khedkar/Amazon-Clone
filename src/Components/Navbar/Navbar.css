@@ -1,0 +1,138 @@
+.navLogo{
+    height:45px;
+    width: 150px;
+    margin: 5px;
+}
+
+.navLogo:hover{
+    border : 1px solid white;
+}
+
+.navLogo img{
+ height: 100%;
+ width: 100%;
+}
+
+.drawerNavLogo{
+    height:45px;
+    width: 150px;
+    margin: 5px;
+}
+
+.drawerNavLogo:hover{
+    border : 1px solid white;
+}
+
+.drawerNavLogo img{
+ height: 100%;
+ width: 100%;
+}
+
+.navCenter{
+    display: flex;
+    width: 60%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+
+.deliver{
+    height: 45px;
+    width: auto;
+    padding: 2px;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+}
+
+.deliver:hover{
+    border : 1px solid white;
+}
+
+.locationIcon{
+    display: flex;
+    align-items: last baseline;
+}
+.userName{
+    display: flex;
+    flex-direction: column;
+}
+
+.navSearchBox{
+    height: 45px;
+    width: 75%;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+
+}
+
+.navSelector{
+    height: 45px;
+    width: 10%;
+    padding: 1px;
+    /* border: 1px solid white; */
+}
+
+.navSelector select{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    /* border:  3px solid orange; */
+    background: lightgrey;
+}
+
+.navInput{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.navInput input{
+    height: 98%;
+    width: 100%;
+}
+
+.navSearchIcon{
+    width: 10%;
+    height: 100%;
+    background: orange;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    /* border: 1px solid red; */
+}
+
+.navbarButtons{
+    color: #fff !important;
+    height: 50px;
+}
+.navbarButtons:hover{
+    border: 1px solid white;
+}
+
+@media (min-width:250px) and (max-width:600px)
+{
+    .navLogo{
+        margin-left: 50%;
+    }
+    .navCenter{
+        /* border: 1px solid red; */
+        display: none;
+    }
+    
+}
+
+@media (min-width:600px) and (max-width:800px)
+{
+    .navCenter{
+        display: none;
+    }
+}

@@ -1,0 +1,15 @@
+.homeBody{
+    height: auto;
+    width: 100%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: space-evenly; */
+    /* border: 1px solid red; */
+}
+
+@media (min-width:250px) and (max-width:900px)
+{
+
+    
+}
