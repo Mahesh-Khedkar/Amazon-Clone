@@ -45,7 +45,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
 
-      <div className="drawerNavLogo" style={{display:'flex'}}>
+      <div className="drawerNavLogo" style={{display:'flex'}} onClick={() => navigate('/')}>
           <IconButton> 
             <big style={{color:'black'}}>❌</big>
           </IconButton>
@@ -81,7 +81,7 @@ function DrawerAppBar(props) {
           >
             <big>=</big>
           </IconButton>
-          <div className="navLogo">
+          <div className="navLogo" onClick={() => navigate('/')}>
             <img src={NavLogo} alt="Navigation Logo" />
           </div>
           
@@ -122,10 +122,10 @@ function DrawerAppBar(props) {
               {/* <Button className="navbarButtons" >
                 Country
               </Button> */}
-              <Button className="navbarButtons" onClick={() => navigate('/account')}>
+              <Button className="navbarButtons" onClick={() => navigate('/login')}>
                 Account
               </Button>
-              <Button className="navbarButtons" >
+              <Button className="navbarButtons" onClick={() => navigate('/login')}>
                 Returns & Orders
               </Button>
               <Button className="navbarButtons" onClick={() => navigate('/cart')}>

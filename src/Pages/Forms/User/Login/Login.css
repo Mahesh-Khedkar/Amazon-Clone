@@ -1,0 +1,102 @@
+.loginBody{
+    height: auto;
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginFormContainer{
+    height: auto;
+    width: 350px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+}
+
+.loginFormContainer form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start !important;
+}
+
+.loginLabel{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start !important;
+    /* border: 1px solid red; */
+}
+
+.loginInput{
+    width: 100%;
+    margin: 10px;
+    display: flex;
+    justify-items: flex-start;
+    /* border: 1px solid red; */
+}
+
+.loginInput input{
+    height: 30px;
+    width: 100% !important;
+    /* margin: 10px; */
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.loginButton{
+    height: 35px;
+    width: 100%;
+    background: rgb(250, 212, 61);
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.newToAmazon{
+    width: 380px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    /* border : 1px solid red */
+}
+.newToAmazon hr{
+    width: 30%;
+    height: 1px;
+}
+.createAccount{
+    height: 20px;
+    width: 380px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border : 1px solid lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.loginBottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+
+.loginBottom span{
+    margin: 10px;
+    font-size: 13px;
+    color: blue;
+    cursor: pointer;
+}
+
+.loginBottom span:hover{
+    color: orange;
+    border-bottom: 1px solid orange;
+}

@@ -1,11 +1,17 @@
 import React from 'react';
 import './Cart.css';
+import Navbar from '../../../Components/Navbar/Navbar';
+import Footer from '../../../Components/Footer/Footer';
 
 const Cart = () => {
   return (
     <div className='CartBody'>
-        <h1>You are in Cart</h1>
-        <h1>Login first</h1>
+      <div>
+        <Navbar/>
+      </div>
+      <div>
+        <Footer/>
+      </div>
     </div>
   )
 }
