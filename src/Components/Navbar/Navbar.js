@@ -91,8 +91,8 @@ function DrawerAppBar(props) {
                 <PlaceIcon/>
               </div>
               <div className="userName">
-                <span>Deliver to Khedkar</span>
-                <span>Pune 411014</span>
+                <span style={{color:'white'}}>Deliver to Khedkar</span>
+                <span style={{color:'white'}}>Pune 411014</span>
               </div>
             </div>
             <div className="navSearchBox">

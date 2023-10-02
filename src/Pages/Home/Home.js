@@ -22,8 +22,8 @@ const Home = () => {
     axios.get(apiUrl)
       .then((response) => {
         // Set the data in state
-        setData(response.data.json());
-        console.log(data);
+        setData(response.data);
+        // console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -41,8 +41,8 @@ const Home = () => {
       <div>
         <Slider/>
       </div>
-      <div>
-        <Card/>
+      <div className='cardSection'>
+        <Card data={data}/>
       </div>
       <div>
         <Footer/>

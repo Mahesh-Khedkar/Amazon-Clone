@@ -4,6 +4,7 @@ import Home from './Pages/Home/Home';
 import Cart from './Pages/Home/Cart/Cart';
 import Account from './Pages/User/UserAccount/Account';
 import Login from './Pages/Forms/User/Login/Login';
+import Register from './Pages/Forms/User/Register/Register';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/cart" element={<Cart/>} />
           <Route path="/account" element={<Account/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
         </Routes>
       </BrowserRouter>
 

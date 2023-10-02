@@ -1,0 +1,17 @@
+p{
+    font-size: 15px;
+}
+
+span{
+    color: blue;
+    cursor: pointer;
+}
+
+span:hover{
+    color: orange !important;
+    border-bottom: 1px solid orange;
+}
+
+hr{
+    color: lightgrey !important;
+}

@@ -12,7 +12,7 @@ const Footer = () => {
     <div className="footerBody">
       <a href="#" >
           <div className="fContainer1"> 
-            <span>Back to top</span>
+            <span style={{color:'white'}}>Back to top</span>
           </div>
       </a>
       <div className="fContainer2">
