@@ -7,6 +7,7 @@ import Card from '../../Components/Card/Card';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import Loader from '../../Components/Loader/Loader';
 
 
 const Home = () => {
@@ -17,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     // Define the API URL you want to fetch data from
-    const apiUrl = 'https://fakestoreapi.com/products';
+    const apiUrl = 'http://localhost:8000/products';
     // Use Axios to fetch data from the API
     axios.get(apiUrl)
       .then((response) => {
@@ -42,7 +43,14 @@ const Home = () => {
         <Slider/>
       </div>
       <div className='cardSection'>
-        <Card data={data}/>
+      {
+        loading
+        ? (<Loader/>) 
+        : <Card data={data}/>
+      }
+      </div>
+      <div>
+        {/* <Loader/> */}
       </div>
       <div>
         <Footer/>

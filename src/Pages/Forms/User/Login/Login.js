@@ -4,13 +4,14 @@ import '../../../../Components/Navbar/Navbar.css';
 import LoginLogo from '../../../../Images/LoginLogo.png'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { addMethod } from 'yup';
 
 
 const Login = () => {
 
   let navigate = useNavigate();
 
-  const [data , setData] = useState();
+  const [data , setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -35,25 +36,20 @@ const Login = () => {
   let [userId, setUserId] = useState('');
   let [password, setPassword] = useState('');
 
-  // console.log(userName);
+// validation of user
 
-  // let loginData = {
-  //   userName: userId,
-  //   password: password
-  // }
-
-  console.log(userId);
-
-  // validation of user
-
-  function validateUserName(userId) {
+  function validateUserName(inputUserId, pass) 
+  {
     let isValid = false;
-    data && data.forEach((user) => {
+    let message = document.getElementById('message');
+    // console.log("userData : " + inputUserId + " " + pass );
 
-      // console.log(user.userName);
-      console.log(userId);
+    data && data.forEach((user) =>
+    {      
 
-      if (userId === user.userName) {
+      // console.log("DB-Data : " + user.userName + " " + user.password );
+
+      if (inputUserId === user.userName && pass === user.password) {
         isValid = true;
       }
     });
@@ -61,10 +57,16 @@ const Login = () => {
     if (isValid) 
     {
       console.log("Login successful");
+      message.innerHTML="Success";
+      message.style.color="green";
+      // navigate('/landing'); 
+
     } 
     else 
     {
-      console.log("Invalid username");
+      console.log("Invalid username or Pass");
+      message.innerHTML="Invalid username or Password";
+      message.style.color="red";
     }
   }
 
@@ -80,7 +82,13 @@ const Login = () => {
             <h1>Sign in</h1>
           </div>
           <div>
-            <form>
+            <form 
+              onSubmit={(e) => {
+              e.preventDefault(); // Prevents default form submission
+              validateUserName(userId, password);
+            }}
+            method='post'
+            >
               <div className='loginLabel'>
                 <label>
                   <b>Email or mobile phone number</b>
@@ -91,10 +99,19 @@ const Login = () => {
                 
                 </input>
               </div>
-              <button className='loginButton' onClick={validateUserName(userId)}>
-                Continue
-              </button>
+              <div className='loginLabel'>
+                <label>
+                  <b>Password</b>
+                </label>
+              </div>
+              <div className='loginInput'>
+                <input type='password'  onChange= {((e) => setPassword(e.target.value))}>
+                
+                </input>
+              </div>
+              <input type='submit' className='loginButton' name='Continue' value="Continue"/>                
             </form>
+            <p id='message'></p>
           </div>
           <div>
             <p>By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</p>
