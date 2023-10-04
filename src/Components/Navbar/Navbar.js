@@ -16,12 +16,11 @@ import { useNavigate } from "react-router-dom";
 import NavLogo from "../../Images/NavbarLogo.png";
 import PlaceIcon from '@mui/icons-material/Place';
 import SearchIcon from '@mui/icons-material/Search';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import "./Navbar.css";
 
 const drawerWidth = 240;
 const navItems = ["Account & Lists", "Returns & Orders", "Cart"];
-
-
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -30,13 +29,27 @@ function DrawerAppBar(props) {
 //for navigate between pages
   let navigate = useNavigate();
 
-  // console.log(navItems.map((item) => item==="Account & Lists"))
+    //navigation
 
-  // if(navItems.map((item) => item==="Account & Lists"))
-  // {
-    
-  // }
-
+    const navigateToOrders = () => {
+      const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
+      if (isLoggedIn) 
+      {
+        navigate("/orders"); // Navigate to the "orders" page
+        navigate("/userCart");
+      } 
+      else 
+      {
+        navigate("/login"); // Redirect to the "login" page if the user is not logged in
+        navigate("/cart");
+      }
+    };
+  
+    function logout()
+    {
+      sessionStorage.clear();
+      alert("Logged out");
+    }
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -67,6 +80,7 @@ function DrawerAppBar(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+
   return (
     <Box sx={{ display: "flex", background: "#223449" }}>
       <CssBaseline />
@@ -91,7 +105,7 @@ function DrawerAppBar(props) {
                 <PlaceIcon/>
               </div>
               <div className="userName">
-                <span style={{color:'white'}}>Deliver to Khedkar</span>
+                <span style={{color:'white'}}>Deliver to {sessionStorage.getItem("userName")}</span>
                 <span style={{color:'white'}}>Pune 411014</span>
               </div>
             </div>
@@ -112,24 +126,49 @@ function DrawerAppBar(props) {
           </Box>
 
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            
-            {/* {navItems.map((item) => (
-              <Button className="navbarButtons" key={item} sx={{ color: "#fff", height: "50px" }}>
-                {item}
+              <Button className="navbarButtons" onClick={() => navigateToOrders()}>
+                <section style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'flex-start'}}>
+                  <span>
+                    <small>Hello, {sessionStorage.getItem("userName")}</small>
+                  </span>
+                  <span style={{display:'flex', alignItems:'baseline'}}>
+                    <small>Account & Lists</small><ArrowDropDownIcon/>
+                  </span>
+                  <div className="accountsDiv">
+                    <div>   
+                      <ul>
+                        <big><b>Your Account</b></big>
+                        <li>Your Account</li>
+                        <li onClick={()=> navigate('/orders')}>Your Orders</li>
+                        <li>Your Wish List</li>
+                        <li>Your Recommendations</li>
+                        <li>Your Prime Membership</li>
+                        <li>Your Prime Video</li>
+                        <li>Your Subscribe & Save Items</li>
+                        <li>Memberships & Subscriptions</li>
+                        <li>Your Seller Account</li>
+                        <li>Manage Your Content and Devices</li>
+                        <li>Your Free Amazon Business Account</li>
+                        <li>Switch Accounts</li>
+                        <li onClick={()=> logout()}>Sign Out</li>
+                      </ul>
+                    </div>
+                </div>
+                </section>
               </Button>
-            ))} */}
-
-              {/* <Button className="navbarButtons" >
-                Country
-              </Button> */}
+              
               <Button className="navbarButtons" onClick={() => navigate('/login')}>
-                Account
-              </Button>
-              <Button className="navbarButtons" onClick={() => navigate('/login')}>
-                Returns & Orders
+                <section style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'flex-start'}}>
+                  <span>
+                    <small>Returns</small>
+                  </span> 
+                  <span>
+                    <small>& Orders</small>
+                  </span>
+                </section>
               </Button>
               <Button className="navbarButtons" onClick={() => navigate('/cart')}>
-                Cart
+                Cart {"(" +")"}
               </Button>
 
           </Box>

@@ -4,7 +4,6 @@ import '../../../../Components/Navbar/Navbar.css';
 import LoginLogo from '../../../../Images/LoginLogo.png'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { addMethod } from 'yup';
 
 
 const Login = () => {
@@ -19,11 +18,13 @@ const Login = () => {
     // Define the API URL you want to fetch data from
     const apiUrl = 'http://localhost:8000/user';
     // Use Axios to fetch data from the API
+
+    // const userData =`http://localhost:8000/user?userName=${userId}`;
+
     axios.get(apiUrl)
       .then((response) => {
         // Set the data in state
         setData(response.data);
-        // console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -42,24 +43,35 @@ const Login = () => {
   {
     let isValid = false;
     let message = document.getElementById('message');
-    // console.log("userData : " + inputUserId + " " + pass );
 
     data && data.forEach((user) =>
     {      
-
-      // console.log("DB-Data : " + user.userName + " " + user.password );
-
       if (inputUserId === user.userName && pass === user.password) {
         isValid = true;
+        // Store username and password in session storage
+
+        // sessionStorage.setItem("userName", inputUserId);
+        // sessionStorage.setItem("password", pass);
+        sessionStorage.setItem("userId", user.id);
+        sessionStorage.setItem("userName", user.userName);
+        sessionStorage.setItem("userMobile", user.mobileNumber);
+        sessionStorage.setItem("userEmail", user.email);
+        sessionStorage.setItem("userPassword", user.password);
+
+        let x = sessionStorage.getItem("userName");
+        console.log(x);
+   
       }
     });
+
   
     if (isValid) 
     {
       console.log("Login successful");
       message.innerHTML="Success";
       message.style.color="green";
-      // navigate('/landing'); 
+
+      navigate('/'); 
 
     } 
     else 

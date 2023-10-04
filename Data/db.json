@@ -1,5 +1,6 @@
 {
-  "user": [
+  "user": 
+  [
     {
       "id": 1,
       "userName": "mahesh",
@@ -25,9 +26,18 @@
       "email": "rohit@gmail.com",
       "password": "rohit@123",
       "id": 4
+    },
+    {
+      "userName": "abhi",
+      "mobileNumber": "9876543211",
+      "email": "abhi@gmail.com",
+      "password": "54321",
+      "id": 5
     }
   ],
-  "offers": [
+
+  "offers": 
+  [
     {
       "label": "San Francisco – Oakland Bay Bridge, United States",
       "imgPath": "https://images-eu.ssl-images-amazon.com/images/G/31/Events/img23/Jupiter23/Homepage/v2/KSD_PC_Hero_EN_2X._CB576823215_.jpg"
@@ -61,7 +71,14 @@
       "imgPath": "https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/Madhav/september/Nokia/Sale/D95803781-_Desktop_3000x1200._CB577853410_.jpg"
     }
   ],
-  "products": [
+
+  "cart":
+  [
+
+  ],
+
+  "products": 
+  [
     {
       "id": 1,
       "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",

@@ -63,8 +63,6 @@ const Register = () => {
         password: password
       };
 
-      console.log("userData : " + postData.userName+" "+postData.mobileNumber+" "+postData.email+" "+postData.password);
-
       axios.post('http://localhost:8000/user', postData)
         .then((response) => {
           // Handle the response from the POST request
@@ -90,7 +88,7 @@ const Register = () => {
 
 
   return (
-    <div className='loginBody'>
+    <div className='registerBody'>
         <center>
           <div className="navLogo" style={{height:'70px'}} onClick={() => navigate('/')}>
             <img src={LoginLogo} alt="Navigation Logo" />

@@ -118,9 +118,48 @@
 .navbarButtons{
     color: #fff !important;
     height: 50px;
+    margin-top: 0%;
 }
+
 .navbarButtons:hover{
     border: 1px solid white;
+}
+
+.accountsDiv{
+    height:auto;
+    width: 250px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    /* padding: 10px; */
+    display: none;
+    position: fixed;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-decoration: none;
+    transform: translateY(55px);
+}
+
+.navbarButtons:hover .accountsDiv{
+    display: block !important;
+}
+
+.accountsDiv:hover{
+    display: flex;
+}
+
+.accountsDiv ul{
+    list-style: none;
+    padding-left: 20px;
+    font-size: 13px;
+    text-align: left;
+    line-height: 25px;
+    /* border: 1px solid red; */
+}
+
+.accountsDiv li:hover{
+    color: orange;
 }
 
 @media (min-width:250px) and (max-width:600px)

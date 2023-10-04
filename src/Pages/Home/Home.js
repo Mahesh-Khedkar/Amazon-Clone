@@ -34,6 +34,9 @@ const Home = () => {
       });
   }, []);
 
+  // console.log(sessionStorage.getItem("userName"));
+  // console.log(sessionStorage.getItem("password"));
+
   return (
     <div className='homeBody'>
       <div>
