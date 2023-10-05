@@ -5,17 +5,47 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import './Card.css';
-
+import "./Card.css";
+import axios from 'axios';
 
 export default function ImgMediaCard(data) {
+
+  // If you want to make a POST request, you can do it here
+
+  function addToCart(product) {
+
+    product["userId"] = sessionStorage.getItem("userId");
+
+    console.log(product);
+
+    if(product)
+    {
+      axios
+        .post("http://localhost:8000/cart", product)
+        .then((response) => {
+          console.log("POST request successful", response);
+          // Redirect or perform any other action as needed
+        })
+        .catch((error) => {
+          // Handle errors from the POST request
+          console.error("Error making POST request", error);
+        });
+
+      alert("Product added to Cart..!");
+    }
+    else
+    {
+      alert("Error occurred while adding product to the Cart")
+    }
+
+  }
 
   return (
     <div className="cardBody">
       {data.data &&
         data.data.map((item) => {
           return (
-            <div style={{margin:'10px'}}>
+            <div style={{ margin: "10px" }}>
               <Card
                 sx={{
                   maxWidth: 300,
@@ -29,11 +59,11 @@ export default function ImgMediaCard(data) {
                   alt="green iguana"
                   image={item.image}
                   sx={{
-                  // maxWidth: 345,
-                  // margin: "10px !important",
-                  // border: "1px solid red",
-                  height:'300px'
-                }}
+                    // maxWidth: 345,
+                    // margin: "10px !important",
+                    // border: "1px solid red",
+                    height: "300px",
+                  }}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
@@ -47,10 +77,13 @@ export default function ImgMediaCard(data) {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" sx={{border:'1px solid gray'}}>
+                  <Button size="small" sx={{ border: "1px solid gray" }}>
                     See more
                   </Button>
-                  <Button size="small" sx={{border:'1px solid gray'}}>
+                  <Button size="small" 
+                  sx={{ border: "1px solid gray" }}
+                  onClick={( )=> addToCart(item)}
+                  >
                     Add to cart
                   </Button>
                 </CardActions>

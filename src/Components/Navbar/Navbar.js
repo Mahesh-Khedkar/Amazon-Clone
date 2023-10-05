@@ -29,21 +29,37 @@ function DrawerAppBar(props) {
 //for navigate between pages
   let navigate = useNavigate();
 
-    //navigation
+    // Account and Lists navigation
 
     const navigateToOrders = () => {
       const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
+      let orders = document.getElementById("orders");
+      let yourAccount = document.getElementsByClassName("yourAccount");
       if (isLoggedIn) 
       {
-        navigate("/orders"); // Navigate to the "orders" page
-        navigate("/userCart");
+        orders.addEventListener('click', ()=> {navigate("/orders")}); // Navigate to the "orders" page
       } 
       else 
       {
         navigate("/login"); // Redirect to the "login" page if the user is not logged in
+      }
+    };
+
+    // Cart button navigation
+
+    const navigateToCart = () => {
+      const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
+      let orders = document.getElementById("cart");
+      if (isLoggedIn) 
+      {
+        navigate("/userCart");
+      } 
+      else 
+      {
         navigate("/cart");
       }
     };
+
   
     function logout()
     {
@@ -137,9 +153,9 @@ function DrawerAppBar(props) {
                   <div className="accountsDiv">
                     <div>   
                       <ul>
-                        <big><b>Your Account</b></big>
-                        <li>Your Account</li>
-                        <li onClick={()=> navigate('/orders')}>Your Orders</li>
+                        <big className="yourAccount"><b>Your Account</b></big>
+                        <li className="yourAccount">Your Account</li>
+                        <li id="orders" onClick={()=> navigate('/orders')}>Your Orders</li>
                         <li>Your Wish List</li>
                         <li>Your Recommendations</li>
                         <li>Your Prime Membership</li>
@@ -157,7 +173,7 @@ function DrawerAppBar(props) {
                 </section>
               </Button>
               
-              <Button className="navbarButtons" onClick={() => navigate('/login')}>
+              <Button className="navbarButtons" onClick={() => navigateToOrders()}>
                 <section style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'flex-start'}}>
                   <span>
                     <small>Returns</small>
@@ -167,7 +183,7 @@ function DrawerAppBar(props) {
                   </span>
                 </section>
               </Button>
-              <Button className="navbarButtons" onClick={() => navigate('/cart')}>
+              <Button id="cart" className="navbarButtons" onClick={() => navigateToCart()}>
                 Cart {"(" +")"}
               </Button>
 
