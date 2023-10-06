@@ -31,7 +31,8 @@ export default function ImgMediaCard(data) {
           console.error("Error making POST request", error);
         });
 
-      alert("Product added to Cart..!");
+      window.location.href = '/userCart'; // Assuming 'navigate' is not defined
+
     }
     else
     {
@@ -59,10 +60,10 @@ export default function ImgMediaCard(data) {
                   alt="green iguana"
                   image={item.image}
                   sx={{
-                    // maxWidth: 345,
-                    // margin: "10px !important",
-                    // border: "1px solid red",
-                    height: "300px",
+                    height: "300px !important",
+                    objectFit:"contain",
+                    padding: "1rem !important"
+
                   }}
                 />
                 <CardContent>

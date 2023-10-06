@@ -70,7 +70,6 @@ const Register = () => {
           // Redirect or perform any other action as needed
         })
         .catch((error) => {
-          // Handle errors from the POST request
           console.error('Error making POST request', error);
         });
 

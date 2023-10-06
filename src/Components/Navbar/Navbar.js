@@ -18,6 +18,9 @@ import PlaceIcon from '@mui/icons-material/Place';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import "./Navbar.css";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Badge from '@mui/material/Badge';
+
 
 const drawerWidth = 240;
 const navItems = ["Account & Lists", "Returns & Orders", "Cart"];
@@ -184,7 +187,13 @@ function DrawerAppBar(props) {
                 </section>
               </Button>
               <Button id="cart" className="navbarButtons" onClick={() => navigateToCart()}>
-                Cart {"(" +")"}
+                {/* <span style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'space-around',height:'100%', width:'100%',border:'1px solid red'}}>
+                  <p style={{border:'1px solid red',marginTop:'20px'}}><sup style={{color:'orange', fontSize:'22px', paddingLeft:'5px'}}>{ sessionStorage.getItem("cartLength")}</sup></p>
+                  <span style={{border:'1px solid red'}}><AddShoppingCartIcon/></span>
+                </span> */}
+                <Badge badgeContent={sessionStorage.getItem("cartLength")} style={{color:'orange',fontWeight:'22'}} color="error">
+                <div style={{color:'white'}}><AddShoppingCartIcon/></div>
+                </Badge>
               </Button>
 
           </Box>

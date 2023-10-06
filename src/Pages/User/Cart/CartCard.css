@@ -1,0 +1,55 @@
+.cartCardBody{
+    
+}
+
+.cartCard{
+    height: 300px;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartCard .productImage{
+    height: 100%;
+    width: 30%;
+    /* border: 1px solid red; */
+}
+
+.productImage img{
+    height: 100%;
+    width: 100%;
+}
+
+.productDescription{
+    height: 100%;
+    width: 66%;
+    /* border: 1px solid green; */
+}
+
+.cartCard-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30%;
+    /* border: 1px solid red; */
+}
+
+.cartCard-buttons select{
+    border: none;
+    font-size: 15px;
+}
+
+.sectionButtons button{
+    background: transparent;
+    border-left: 1px solid rgb(106, 133, 106);;
+    border-right: 1px solid rgb(106, 133, 106);;
+    border-bottom: 0px;
+    border-top: 0px;
+    margin: 7px;
+    cursor: pointer;
+    color: rgb(106, 133, 106);
+}
+
+.sectionButtons button:hover{
+    text-decoration: underline;
+}
