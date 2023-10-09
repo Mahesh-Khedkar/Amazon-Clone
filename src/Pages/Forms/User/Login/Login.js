@@ -67,9 +67,9 @@ const Login = () => {
   
     if (isValid) 
     {
-      console.log("Login successful");
-      message.innerHTML="Success";
-      message.style.color="green";
+      // console.log("Login successful");
+      // message.innerHTML="Success";
+      // message.style.color="green";
 
       navigate('/'); 
 

@@ -9,12 +9,13 @@ import Register from './Pages/Forms/User/Register/Register';
 import Orders from './Pages/Orders/Orders';
 
 const App = () => {
+
   return (
     <div>
       {/* <Home/> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/cart" element={<Cart/>} />
           <Route path="/userCart" element={<UserCart/>} />
           <Route path="/account" element={<Account/>} />
@@ -23,7 +24,6 @@ const App = () => {
           <Route path="/orders" element={<Orders/>} />
         </Routes>
       </BrowserRouter>
-
     </div>
   )
 }

@@ -25,7 +25,7 @@ const Cart = () => {
         // Set the data in state
         setData(response.data);
         sessionStorage.setItem("cartLength",response.data.length);
-        console.log(response.data.length);
+        console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -34,6 +34,7 @@ const Cart = () => {
         setLoading(false);
       });
   }, []);
+  console.log(cartData);
 
   function removeProduct(product) {
     cartData.forEach((item) => {
@@ -47,7 +48,7 @@ const Cart = () => {
             console.log('DELETE request successful', response);
             // Redirect or perform any other action as needed
             window.location.href = '/userCart'; // Assuming 'navigate' is not defined
-            alert("Product Removed ..!");
+            // alert("Product Removed ..!");
           })
           .catch((error) => {
             console.error('Error making DELETE request', error);

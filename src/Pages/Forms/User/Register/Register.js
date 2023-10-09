@@ -32,6 +32,23 @@ const Register = () => {
       });
   }, []);
 
+//for creation of cart table for new users
+// useEffect(() => {
+
+//   axios
+//   .post("http://localhost:8000/cart", )
+//   .then((response) => {
+//     console.log("POST request successful", response);
+//     // Redirect or perform any other action as needed
+//   })
+//   .catch((error) => {
+//     // Handle errors from the POST request
+//     console.error("Error making POST request", error);
+//   });
+//   window.location.href="/userCart";
+// }, []);
+
+
   let [userName, setUserName] = useState('');
   let [mobileNumber, setMobileNumber] = useState('');
   let [email, setEmail] = useState('');
@@ -76,6 +93,20 @@ const Register = () => {
       // You can navigate to the desired page here
       navigate('/login');
       alert("User Registered successfully..!");
+
+  //for creation of cart table for new users
+
+
+      // axios
+      // .post("http://localhost:8000/cart/", userid)
+      // .then((response) => {
+      //   console.log("POST request successful", response);
+      //   // Redirect or perform any other action as needed
+      // })
+      // .catch((error) => {
+      //   // Handle errors from the POST request
+      //   console.error("Error making POST request", error);
+      // });
 
     } 
     else {

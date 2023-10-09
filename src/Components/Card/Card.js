@@ -8,21 +8,36 @@ import Typography from "@mui/material/Typography";
 import "./Card.css";
 import axios from 'axios';
 
-export default function ImgMediaCard(data) {
+export default function ImgMediaCard({data,search}) {
 
+  // console.log(search);
+  // console.log(data);
   // If you want to make a POST request, you can do it here
 
-  function addToCart(product) {
+  function addToCart(product){
+    let isLogedIn = sessionStorage.getItem("userId");
 
+    if(isLogedIn)
+    {
+      addProductToCart(product);
+    }
+    else
+    {
+      window.location.href="/login";
+    }
+
+  }
+
+  function addProductToCart(product) {
     product["userId"] = sessionStorage.getItem("userId");
-
-    console.log(product);
+    // let user = sessionStorage.getItem("userId");
 
     if(product)
     {
+      
       axios
-        .post("http://localhost:8000/cart", product)
-        .then((response) => {
+        .post('http://localhost:8000/cart/', product)
+          .then((response) => {
           console.log("POST request successful", response);
           // Redirect or perform any other action as needed
         })
@@ -30,9 +45,7 @@ export default function ImgMediaCard(data) {
           // Handle errors from the POST request
           console.error("Error making POST request", error);
         });
-
-      window.location.href = '/userCart'; // Assuming 'navigate' is not defined
-
+        window.location.href="/userCart";
     }
     else
     {
@@ -43,10 +56,13 @@ export default function ImgMediaCard(data) {
 
   return (
     <div className="cardBody">
-      {data.data &&
-        data.data.map((item) => {
+      {data &&
+        data.filter((item)=>item.title.toLowerCase().includes(search)).map((item)=>{
           return (
             <div style={{ margin: "10px" }}>
+            {/* {console.log(search)} */}
+            {console.log(item)}
+
               <Card
                 sx={{
                   maxWidth: 300,

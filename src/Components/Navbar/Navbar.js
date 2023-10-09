@@ -11,7 +11,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 import NavLogo from "../../Images/NavbarLogo.png";
 import PlaceIcon from '@mui/icons-material/Place';
@@ -21,13 +20,14 @@ import "./Navbar.css";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Badge from '@mui/material/Badge';
 
-
 const drawerWidth = 240;
 const navItems = ["Account & Lists", "Returns & Orders", "Cart"];
 
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const {setSearch} = props;
 
 //for navigate between pages
   let navigate = useNavigate();
@@ -69,6 +69,11 @@ function DrawerAppBar(props) {
       sessionStorage.clear();
       alert("Logged out");
     }
+
+//Cart count
+let cartCount = sessionStorage.getItem("cartLength");
+
+
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -136,7 +141,7 @@ function DrawerAppBar(props) {
                 </select>
               </div>
               <div className="navInput">
-                <input type="text"></input>
+                <input type="text" onChange={(e) => setSearch(e.target.value)} />
               </div>
               <div className="navSearchIcon">
                 <SearchIcon/>
@@ -191,7 +196,7 @@ function DrawerAppBar(props) {
                   <p style={{border:'1px solid red',marginTop:'20px'}}><sup style={{color:'orange', fontSize:'22px', paddingLeft:'5px'}}>{ sessionStorage.getItem("cartLength")}</sup></p>
                   <span style={{border:'1px solid red'}}><AddShoppingCartIcon/></span>
                 </span> */}
-                <Badge badgeContent={sessionStorage.getItem("cartLength")} style={{color:'orange',fontWeight:'22'}} color="error">
+                <Badge badgeContent={cartCount} style={{color:'orange',fontWeight:'22'}} color="error">
                 <div style={{color:'white'}}><AddShoppingCartIcon/></div>
                 </Badge>
               </Button>

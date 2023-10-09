@@ -2,6 +2,7 @@ import React from 'react';
 import './CSS/Home.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import Slider from '../../Components/Slider/Slider2';
+import Slider3 from '../../Components/Slider/Slider3';
 import Footer from '../../Components/Footer/Footer';
 import Card from '../../Components/Card/Card';
 import { useState } from 'react';
@@ -15,6 +16,10 @@ const Home = () => {
   const [data , setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  //For search functionality
+  const[search,setSearch]= useState('');
+  // console.log(search);
 
   useEffect(() => {
     // Define the API URL you want to fetch data from
@@ -35,21 +40,31 @@ const Home = () => {
   }, []);
 
   // console.log(sessionStorage.getItem("userName"));
-  // console.log(sessionStorage.getItem("password"));
+  // console.log(sessionStorage.getItem("password"));  
 
   return (
     <div className='homeBody'>
       <div>
-        <Navbar/>
+        <Navbar setSearch={setSearch}/>
       </div>
       <div>
         <Slider/>
       </div>
+      <div className='recommendedContainer'>
+        <div>
+          <h3>Recommended</h3>
+        </div>
+        <div>
+          <Slider3/>
+        </div>
+      </div>
+
       <div className='cardSection'>
       {
         loading
         ? (<Loader/>) 
-        : <Card data={data}/>
+        : <Card data={data} search={search}/>
+        
       }
       </div>
       <div>

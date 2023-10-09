@@ -18,3 +18,8 @@
     margin: 30px 20px 30px 20px;
 }
 
+@media (min-width:250px) and (max-width:900px){
+    .shopingCart{
+        width: 100%;
+    }
+}
