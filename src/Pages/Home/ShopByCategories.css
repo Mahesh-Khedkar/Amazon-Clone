@@ -1,0 +1,9 @@
+.ShopByCategoriesBody{
+
+}
+
+.categoryTag h1{
+    background: lightgrey;
+    padding-left: 20px;
+    color: orange !important;
+}

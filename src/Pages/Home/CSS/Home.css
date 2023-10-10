@@ -27,6 +27,13 @@
     background: lightGrey;
 }
 
+.categoriesContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 @media (min-width:250px) and (max-width:900px)
 {
 

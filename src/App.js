@@ -7,6 +7,7 @@ import Account from './Pages/User/UserAccount/Account';
 import Login from './Pages/Forms/User/Login/Login';
 import Register from './Pages/Forms/User/Register/Register';
 import Orders from './Pages/Orders/Orders';
+import ShopByCategories from './Pages/Home/ShopByCategories';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/orders" element={<Orders/>} />
+          <Route path="/categories/:categoryName" element={<ShopByCategories />} />
         </Routes>
       </BrowserRouter>
     </div>

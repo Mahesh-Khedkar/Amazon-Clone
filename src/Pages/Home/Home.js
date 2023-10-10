@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import Loader from '../../Components/Loader/Loader';
+import Categories from './Categories';
 
 
 const Home = () => {
@@ -50,22 +51,25 @@ const Home = () => {
       <div>
         <Slider/>
       </div>
+      <div className='categoriesContainer'>
+        <h2>Shop by Categories</h2>
+        <Categories data={data}/>
+      </div>
       <div className='recommendedContainer'>
         <div>
           <h3>Recommended</h3>
         </div>
         <div>
-          <Slider3/>
+          {/* <Slider3/> */}
         </div>
       </div>
-
       <div className='cardSection'>
-      {
+      {/* {
         loading
         ? (<Loader/>) 
         : <Card data={data} search={search}/>
         
-      }
+      } */}
       </div>
       <div>
         {/* <Loader/> */}

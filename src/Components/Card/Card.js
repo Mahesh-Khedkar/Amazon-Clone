@@ -57,18 +57,12 @@ export default function ImgMediaCard({data,search}) {
   return (
     <div className="cardBody">
       {data &&
-        data.filter((item)=>item.title.toLowerCase().includes(search)).map((item)=>{
+        data.map((item)=>{
           return (
             <div style={{ margin: "10px" }}>
-            {/* {console.log(search)} */}
-            {console.log(item)}
-
               <Card
                 sx={{
                   maxWidth: 300,
-                  // margin: "10px !important",
-                  // border: "1px solid red",
-                  // height: "400px"
                 }}
               >
                 <CardMedia
@@ -84,13 +78,10 @@ export default function ImgMediaCard({data,search}) {
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {item.title}
+                    {(item.title).slice(0,30)}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    {/* Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica */}
-                    {item.description}
+                    {(item.description).slice(0,50)+" ....."}
                   </Typography>
                 </CardContent>
                 <CardActions>
