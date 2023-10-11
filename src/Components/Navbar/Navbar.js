@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from 'react';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -19,6 +19,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import "./Navbar.css";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Badge from "@mui/material/Badge";
+import axios from 'axios';
+
 
 const drawerWidth = 240;
 const navItems = ["Account & Lists", "Returns & Orders", "Cart"];
@@ -32,29 +34,32 @@ function DrawerAppBar(props) {
   //for navigate between pages
   let navigate = useNavigate();
 
-  // Account and Lists navigation
+// Account and Lists navigation---------------------------------------------------------
 
   const navigateToOrders = () => {
     const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
     let orders = document.getElementById("orders");
     let yourAccount = document.getElementsByClassName("yourAccount");
-    if (isLoggedIn) {
-      orders.addEventListener("click", () => {
+    if (isLoggedIn) 
+    {
         navigate("/orders");
-      }); // Navigate to the "orders" page
-    } else {
+    } 
+    else 
+    {
       navigate("/login"); // Redirect to the "login" page if the user is not logged in
     }
   };
 
-  // Cart button navigation
+// Cart button navigation-------------------------------------------------------------------
 
   const navigateToCart = () => {
     const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
     let orders = document.getElementById("cart");
     if (isLoggedIn) {
       navigate("/userCart");
-    } else {
+    } 
+    else 
+    {
       navigate("/cart");
     }
   };
@@ -62,10 +67,30 @@ function DrawerAppBar(props) {
   function logout() {
     sessionStorage.clear();
     alert("Logged out");
+    let logOutButton = document.getElementsByClassName(".logOut");
+    logOutButton.innerHTML="Sign In";
   }
 
-  //Cart count
+  //Cart count---------------------------------------------------------------------------
   let cartCount = sessionStorage.getItem("cartLength");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+
+    const apiUrl = `http://localhost:8000/cart?userId=${sessionStorage.getItem("userId")}`;
+
+    axios.get(apiUrl)
+      .then((response) => {
+        sessionStorage.setItem("cartLength",response.data.length);
+      })
+      .catch((err) => {
+        setError(err);
+        setLoading(false);
+      });
+  }, []);
+
+  //Navbar Toggle ------------------------------------------------------------------------
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -87,12 +112,12 @@ function DrawerAppBar(props) {
       <List>
         {/* {navItems.map((item) => ( */}
         <ListItem key='' disablePadding>
-          <ListItemButton sx={{ textAlign: "center", display:'flex',flexDirection:'column' }}>
+          <ListItemButton sx={{ textAlign: "center", display:'flex',flexDirection:'column'}}>
             {/* <ListItemText primary={item} /> */}
             {/* </ListItemButton>
           </ListItem> */}
             {/* ))} */}
-            <Button style={{border: '1px solid red', color:'black !important'}}
+            <Button
               className="navbarButtons"
               onClick={() => navigateToOrders()}
             >
@@ -102,17 +127,18 @@ function DrawerAppBar(props) {
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "flex-start",
+                  color:'black'
                 }}
               >
-                <span>
+                {/* <span>
                   <small>Hello, {sessionStorage.getItem("userName")}</small>
-                </span>
+                </span> */}
                 <span style={{ display: "flex", alignItems: "baseline" }}>
                   <small>Account & Lists</small>
                   <ArrowDropDownIcon />
                 </span>
                 <div className="accountsDiv">
-                  <div>
+                  {/* <div>
                     <ul>
                       <big className="yourAccount">
                         <b>Your Account</b>
@@ -131,9 +157,9 @@ function DrawerAppBar(props) {
                       <li>Manage Your Content and Devices</li>
                       <li>Your Free Amazon Business Account</li>
                       <li>Switch Accounts</li>
-                      <li onClick={() => logout()}>Sign Out</li>
+                      <li className="logOut" onClick={() => logout()}>Sign Out</li>
                     </ul>
-                  </div>
+                  </div> */}
                 </div>
               </section>
             </Button>
@@ -170,11 +196,14 @@ function DrawerAppBar(props) {
                 color="error"
               >
                 <div style={{ color: "black" }}>
-                  <AddShoppingCartIcon />
+                  <AddShoppingCartIcon />cart
                 </div>
               </Badge>
-              cart
+              
             </Button>
+            <Button className="logOut" onClick={() => logout()}>Log Out</Button>
+
+            
           </ListItemButton>
         </ListItem>
       </List>

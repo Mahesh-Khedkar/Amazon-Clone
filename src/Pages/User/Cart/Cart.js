@@ -34,7 +34,7 @@ const Cart = () => {
         setLoading(false);
       });
   }, []);
-  console.log(cartData);
+  // console.log(cartData);
 
   function removeProduct(product) {
     cartData.forEach((item) => {

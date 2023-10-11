@@ -1,0 +1,140 @@
+.userOrdersBody{
+    
+}
+
+.userOrdersContent{
+
+}
+
+.userOrdersContentLeft{
+    width: 80%;
+    margin-left: 4%;
+    margin-top: 5px;
+    /* border: 1px solid lightgrey; */
+}
+
+.userOrdersContentLeft h1{
+    font-weight: 5;
+}
+
+.ordersNav{
+    display: flex;
+}
+
+.ordersNav button{
+    border: none;
+    background: transparent;
+    margin-left: 8px;
+    font-size: 15px;
+    color: rgb(22, 116, 133);
+    font-weight: 9;
+    cursor: pointer;
+}
+
+.ordersNav button:hover{
+    color: black;
+    border-bottom: 3px solid orange;
+}
+
+.ordersCard{
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+
+.ordersCard .orderDetails{
+    width: 100%;
+    height: 10%;
+    background: rgb(244, 243, 243);
+    border-bottom: 1px solid lightgrey;
+    /* color: gray; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.orderDetails .leftPart{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly !important;
+    margin-left: 30px;
+}
+
+.leftPart span{
+    margin: 20px;
+}
+
+.rightPart{
+    margin-right: 20px;
+}
+
+.orderedProductDetails{
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solidd lightgrey;
+}
+
+.orderedProductDetailsLeft{
+    width: 70%;
+}
+
+.orderedProductDetailsLeft p{
+    margin-top: -3px;
+    color: green;
+    font-weight: 4;
+}
+
+.orderedProduct{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.orderedProductImage{
+    height: 10%;
+    width: 15%;
+    /* border: 1px solid red; */
+}
+
+.orderedProductImage img{
+    height: 100%;
+    width: 100%;
+}
+
+.orderedProductDescription{
+    height: auto;
+    width: 70%;
+    color: rgb(22, 116, 133);
+    /* border: 1px solid red; */
+}
+
+.orderedProductDetailsRight{
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+}
+
+.orderedProductDetailsRight button{
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    border: 1px solid lightgrey;
+    height: 30px;
+    background: transparent;
+}
+
+.archiveOrder{
+    margin-left: 20px;
+    color:rgb(22, 116, 133);
+    cursor: pointer;
+}
+
+.archiveOrder:hover{
+    text-decoration: color( orange) !important;
+    text-decoration: underline orange;
+}

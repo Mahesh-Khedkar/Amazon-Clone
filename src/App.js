@@ -6,7 +6,7 @@ import UserCart from './Pages/User/Cart/Cart';
 import Account from './Pages/User/UserAccount/Account';
 import Login from './Pages/Forms/User/Login/Login';
 import Register from './Pages/Forms/User/Register/Register';
-import Orders from './Pages/Orders/Orders';
+import Orders from './Pages/User/Orders/UserOrders';
 import ShopByCategories from './Pages/Home/ShopByCategories';
 
 const App = () => {
