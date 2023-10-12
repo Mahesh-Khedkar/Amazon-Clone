@@ -8,6 +8,9 @@
     /* position: static;
     bottom: 0; */
     /* border: 1px solid red; */
+    position: relative;
+    bottom: 0px;
+    margin-top: 10px;
 }
 
 .fContainer1{
@@ -56,6 +59,7 @@ hr{
     background-position: center;
     height: 50px;
     width: 150px;
+    cursor: pointer;
 }
 
 .fContainer4{

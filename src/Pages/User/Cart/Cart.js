@@ -11,10 +11,11 @@ const Cart = () => {
 
   let navigate = useNavigate();
 
+ //Get all products from cart of current user---------------------
+
   const [cartData , setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
 
   useEffect(() => {
 
@@ -34,8 +35,10 @@ const Cart = () => {
         setLoading(false);
       });
   }, []);
-  // console.log(cartData);
+  // console.log(cartData);  
 
+ //Remove product from cart---------------------
+  
   function removeProduct(product) {
     cartData.forEach((item) => {
       if (item.id === product.id && item.userId === sessionStorage.getItem('userId')) {

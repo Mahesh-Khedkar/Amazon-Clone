@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <div className="footerBody">
-      <a href="#" >
+      <a href="#" style={{textDecoration:'none'}}>
           <div className="fContainer1"> 
             <span style={{color:'white'}}>Back to top</span>
           </div>
@@ -94,7 +94,7 @@ const Footer = () => {
       </div>
       <hr/>
       <div className="fContainer3">
-        <div className="footerLogo">
+        <div className="footerLogo" onClick={()=>navigate('/')}>
         </div>
         <div className="fContainer4">
           <div>

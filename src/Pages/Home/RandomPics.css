@@ -1,0 +1,43 @@
+.randomPicsBody{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    height: auto;
+}
+
+.randomPicsCardContainer{
+    height: 400px;
+    width: 340px;
+    background: white;
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* text-align: center; */
+    padding: 5px;
+    position: relative;
+    margin: 5px;
+    object-fit: cover;
+    /* border: 1px solid red; */
+}
+
+.randomPicsCard{
+    height: 52%;
+    width: 47%;
+    /* border: 1px solid red; */
+    margin: 3px;
+    font-size: 13px;
+}
+
+.cards{
+    height: auto;
+    margin-top: -15px;
+    display: flex;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+}
+.randomPicsCard img{
+    width: 100%;
+    height: 96;
+}

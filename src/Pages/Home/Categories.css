@@ -25,6 +25,7 @@
     text-shadow: 1px 1px 1px black;
     cursor: pointer;
     box-shadow: 2px 2px 2px 0px gray;
+    background-color: #fff;
 }
 
 .categoriesCard h1{

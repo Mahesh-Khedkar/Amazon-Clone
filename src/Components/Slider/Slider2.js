@@ -73,7 +73,7 @@ const Slider2 = () => {
         sx={{
           width: "100%",
           flexGrow: 1,
-          border: "1px solid black",
+          // border: "1px solid black",
           position: "relative", // Add this line
         }}
       >
@@ -97,6 +97,7 @@ const Slider2 = () => {
                         display: "block",
                         overflow: "hidden",
                         width: "100%",
+                        // border: "1px solid red"
                       }}
                       src={step.imgPath}
                       alt={step.label}
@@ -105,7 +106,7 @@ const Slider2 = () => {
                 </div>
               ))}
             </AutoPlaySwipeableViews>
-            <MobileStepper
+            {/* <MobileStepper
               steps={maxSteps}
               position="static"
               activeStep={activeStep}
@@ -135,7 +136,7 @@ const Slider2 = () => {
                   )}
                 </Button>
               }
-            />
+            /> */}
           </>
         )}
       </Box>

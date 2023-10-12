@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import Loader from '../../Components/Loader/Loader';
 import Categories from './Categories';
+import RandomPics from './RandomPics';
 
 
 const Home = () => {
@@ -52,15 +53,12 @@ const Home = () => {
         <Slider/>
       </div>
       <div className='categoriesContainer'>
-        <h2>Shop by Categories</h2>
+        <h2 style={{color:'white', marginBottom:'-10px'}}>Shop by Categories</h2>
         <Categories data={data}/>
       </div>
-      <div className='recommendedContainer'>
+      <div className='randomPicsContainer'>
         <div>
-          <h3>Recommended</h3>
-        </div>
-        <div>
-          {/* <Slider3/> */}
+          <RandomPics/>
         </div>
       </div>
       <div className='cardSection'>
