@@ -7,11 +7,14 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./Card.css";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
 export default function ImgMediaCard({ data, search }) {
   // console.log(search);
   // console.log(data);
   // If you want to make a POST request, you can do it here
+
+  const navigate = useNavigate();
 
   //Get all products from cart of current user---------------------
 
@@ -30,7 +33,7 @@ export default function ImgMediaCard({ data, search }) {
         // Set the data in state
         setData(response.data);
         sessionStorage.setItem("cartLength", response.data.length);
-        console.log(response.data);
+        // console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -39,7 +42,6 @@ export default function ImgMediaCard({ data, search }) {
         setLoading(false);
       });
   }, []);
-  console.log(cartData);
 
 // Authentication of Add product to cart------------
 
@@ -93,7 +95,7 @@ export default function ImgMediaCard({ data, search }) {
       {data &&
         data.map((item) => {
           return (
-            <div style={{ margin: "10px" }}>
+            <div style={{ margin: "10px" }} key={item.pId}>
               <Card
                 sx={{
                   maxWidth: 300,
@@ -109,25 +111,27 @@ export default function ImgMediaCard({ data, search }) {
                     padding: "1rem !important",
                   }}
                 />
-                <CardContent>
+                <CardContent className='CardContent' onClick={()=>navigate(`/productdetails/${item.title}`)}>
                   <Typography gutterBottom variant="h5" component="div">
                     {item.title.slice(0, 30)}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography className='CardContent' variant="body2" color="text.secondary">
                     {item.description.slice(0, 50) + " ....."}
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button size="small" sx={{ border: "1px solid gray" }}>
+                <Typography sx={{marginLeft:'20px'}} gutterBottom variant="h5" component="div">
+                    ₹{item.price}
+                  </Typography>
+                <CardActions className='cardActions'>
+                  {/* <Button size="small" sx={{ border: "1px solid gray" }}>
                     See more
-                  </Button>
-                  <Button
+                  </Button> */}
+                  <button className='addToCartBtn'
                     size="small"
-                    sx={{ border: "1px solid gray" }}
                     onClick={() => addToCart(item)}
                   >
                     Add to cart
-                  </Button>
+                  </button>
                 </CardActions>
               </Card>
             </div>

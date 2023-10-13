@@ -5,3 +5,24 @@
     justify-content: space-evenly;
     /* border: 1px solid red; */
 }
+
+.CardContent:hover{
+    color: orange !important;
+    cursor: pointer !important;
+}
+
+.cardActions{
+    display: flex;
+    /* justify-content: center; */
+}
+
+.addToCartBtn{
+    background: rgb(255, 221, 0) !important;
+    color: black !important;
+    width: 70%;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 30px !important;
+    border: none !important;
+
+}
