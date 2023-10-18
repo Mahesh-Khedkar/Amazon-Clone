@@ -1,0 +1,52 @@
+.CartBody{
+    
+}
+
+.userCartContent{
+    background-color: rgb(234, 234, 234) !important;
+    height: auto;
+    display: flex;
+    /* border: 1px solid red; */
+}
+
+.shopingCart{
+    width: 72%;
+    margin: 20px;
+    height: auto;
+    background: white;
+}
+
+.shopingCart section{
+    margin: 30px 20px 30px 20px;
+}
+
+.RightContainer{
+    width: 25%;
+    /* margin: 20px; */
+    /* padding: 15px; */
+    background: transparent;
+    display: flex;
+    align-items: first baseline;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+
+.billCard{
+    width: 100%;
+    height: auto;
+    margin: 20px;
+    padding: 15px;
+    background: white;
+    /* border: 1px solid red; */
+}
+
+.billCard h2{
+    font-weight: 5;
+}
+
+@media (min-width:250px) and (max-width:900px){
+    .shopingCart{
+        width: 100%;
+    }
+}

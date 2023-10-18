@@ -2,13 +2,10 @@ import React from 'react';
 import './CSS/Home.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import Slider from '../../Components/Slider/Slider2';
-import Slider3 from '../../Components/Slider/Slider3';
 import Footer from '../../Components/Footer/Footer';
-import Card from '../../Components/Card/Card';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import Loader from '../../Components/Loader/Loader';
 import Categories from './Categories';
 import RandomPics from './RandomPics';
 
@@ -21,7 +18,6 @@ const Home = () => {
 
   //For search functionality
   const[search,setSearch]= useState('');
-  // console.log(search);
 
   useEffect(() => {
     // Define the API URL you want to fetch data from
@@ -31,7 +27,6 @@ const Home = () => {
       .then((response) => {
         // Set the data in state
         setData(response.data);
-        // console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -41,8 +36,6 @@ const Home = () => {
       });
   }, []);
 
-  // console.log(sessionStorage.getItem("userName"));
-  // console.log(sessionStorage.getItem("password"));  
 
   return (
     <div className='homeBody'>

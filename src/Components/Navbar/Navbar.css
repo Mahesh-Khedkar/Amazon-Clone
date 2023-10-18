@@ -162,10 +162,25 @@
     color: orange;
 }
 
+.NavButtons button{
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+/* .NavButtons{
+    display: flex !important;
+} */
+
+.tabNavSearchBox{
+    display: none;
+}
 @media (min-width:250px) and (max-width:600px)
 {
     .navLogo{
-        margin-left: 50%;
+        margin-left: 60%;
     }
     .navCenter{
         /* border: 1px solid red; */
@@ -174,9 +189,59 @@
     
 }
 
-@media (min-width:600px) and (max-width:800px)
+/* --------CSS for Tab---- */
+
+@media (min-width:600px) and (max-width:950px)
 {
+    .DesktopNav{
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: space-around !important;
+    }
+
+    /* .toggleIcon{
+        display: block !important;
+    } */
+
+    .navLogo{
+        margin-left: 1%;
+    }
+
     .navCenter{
         display: none;
     }
+
+    .tabNavSearchBox{
+        height: 45px;
+        width: 40%;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid white;
+        display: flex;
+        align-items: center;
+    }
+
+    .tabNavSearchBox .navSelector{
+        display: none;
+    }
+
+    .tabNavSearchBox .navInput{
+        width: 80%;
+    }
+
+    .tabNavSearchBox .navSearchIcon{
+        width: 20%;
+    }
+
+    .NavButtons{
+        display: flex !important;
+        /* margin-right: 1px !important; */
+        /* border: 1px solid red; */
+    }
+
+    .NavButtons .navbarButtons{
+        /* border: 1px solid white; */
+        margin: 4px;
+    }
+
 }

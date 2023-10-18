@@ -24,5 +24,6 @@
     font-size: 15px;
     border-radius: 30px !important;
     border: none !important;
+    cursor: pointer;
 
 }

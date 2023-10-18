@@ -8,7 +8,6 @@ import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +22,6 @@ import axios from 'axios';
 
 
 const drawerWidth = 240;
-const navItems = ["Account & Lists", "Returns & Orders", "Cart"];
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -38,8 +36,7 @@ function DrawerAppBar(props) {
 
   const navigateToOrders = () => {
     const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
-    let orders = document.getElementById("orders");
-    let yourAccount = document.getElementsByClassName("yourAccount");
+
     if (isLoggedIn) 
     {
         navigate("/orders");
@@ -54,9 +51,9 @@ function DrawerAppBar(props) {
 
   const navigateToCart = () => {
     const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
-    let orders = document.getElementById("cart");
+
     if (isLoggedIn) {
-      navigate("/userCart");
+      navigate("/ShoppingCart");
     } 
     else 
     {
@@ -113,10 +110,6 @@ function DrawerAppBar(props) {
         {/* {navItems.map((item) => ( */}
         <ListItem key='' disablePadding>
           <ListItemButton sx={{ textAlign: "center", display:'flex',flexDirection:'column'}}>
-            {/* <ListItemText primary={item} /> */}
-            {/* </ListItemButton>
-          </ListItem> */}
-            {/* ))} */}
             <Button
               className="navbarButtons"
               onClick={() => navigateToOrders()}
@@ -130,9 +123,6 @@ function DrawerAppBar(props) {
                   color:'black'
                 }}
               >
-                {/* <span>
-                  <small>Hello, {sessionStorage.getItem("userName")}</small>
-                </span> */}
                 <span style={{ display: "flex", alignItems: "baseline" }}>
                   <small>Account & Lists</small>
                   <ArrowDropDownIcon />
@@ -216,9 +206,10 @@ function DrawerAppBar(props) {
   return (
     <Box sx={{ display: "flex", background: "#223449" }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ background: "black" }}>
+      <AppBar className='DesktopNav' component="nav" sx={{ background: "black" }}>
         <Toolbar>
           <IconButton
+            className='toggleIcon'
             color="inherit"
             aria-label="open drawer"
             edge="start"
@@ -261,9 +252,27 @@ function DrawerAppBar(props) {
               </div>
             </div>
           </Box>
-
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            <Button
+{/* search box for tab */}
+          <div className="tabNavSearchBox">
+              <div className="navSelector">
+                <select>
+                  <option>All</option>
+                  <option></option>
+                </select>
+              </div>
+              <div className="navInput">
+                <input
+                  type="text"
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+              <div className="navSearchIcon">
+                <SearchIcon />
+              </div>
+            </div>
+{/* --------------------------------------------- */}
+          <Box className="NavButtons" sx={{ display: { xs: "none", sm: "flex" } }}>
+            <button
               className="navbarButtons"
               onClick={() => navigateToOrders()}
             >
@@ -278,7 +287,7 @@ function DrawerAppBar(props) {
                 <span>
                   <small>Hello, {sessionStorage.getItem("userName")}</small>
                 </span>
-                <span style={{ display: "flex", alignItems: "baseline" }}>
+                <span style={{ display: "flex", alignItems: "center" }}>
                   <small>Account & Lists</small>
                   <ArrowDropDownIcon />
                 </span>
@@ -307,9 +316,9 @@ function DrawerAppBar(props) {
                   </div>
                 </div>
               </section>
-            </Button>
+            </button>
 
-            <Button
+            <button
               className="navbarButtons"
               onClick={() => navigateToOrders()}
             >
@@ -324,12 +333,14 @@ function DrawerAppBar(props) {
                 <span>
                   <small>Returns</small>
                 </span>
-                <span>
-                  <small>& Orders</small>
+                <span style={{ display: "flex", alignItems: "center" }}>
+                  <small>
+                    & Orders
+                  </small>
                 </span>
               </section>
-            </Button>
-            <Button
+            </button>
+            <button
               id="cart"
               className="navbarButtons"
               onClick={() => navigateToCart()}
@@ -344,7 +355,7 @@ function DrawerAppBar(props) {
                 </div>
               </Badge>
               cart
-            </Button>
+            </button>
           </Box>
         </Toolbar>
       </AppBar>

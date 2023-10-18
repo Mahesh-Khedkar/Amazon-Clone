@@ -2,7 +2,7 @@
   "user": [
     {
       "id": 1,
-      "userName": "mahesh",
+      "userName": "Mahesh",
       "mobileNumber": "7774967947",
       "email": "khedkarmahesh180@gmail.com",
       "password": "12345"
@@ -27,9 +27,7 @@
       "id": 4
     }
   ],
-  "cart": [
-    
-  ],
+  "cart": [],
   "offers": [
     {
       "label": "San Francisco – Oakland Bay Bridge, United States",

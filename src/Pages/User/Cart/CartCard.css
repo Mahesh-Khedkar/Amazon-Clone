@@ -3,16 +3,25 @@
 }
 
 .cartCard{
-    height: 300px;
-    width: 80%;
+    height: 250px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.cardDescription{
+    height: 250px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     /* border: 1px solid red; */
 }
 
 .cartCard .productImage{
-    height: 100%;
-    width: 30%;
+    height: 90%;
+    width: 22%;
+    margin: 10px;
     /* border: 1px solid red; */
 }
 
@@ -29,22 +38,30 @@
     /* border: 1px solid green; */
 }
 
-.cartCard-buttons{
+.cartCard-Actions{
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin-top: 15%;
+    justify-content: space-evenly;
+    margin-top: 2%;
     /* border: 1px solid red; */
-
 }
 
-.cartCard-buttons select{
+#qty0 select{
     border: none;
     font-size: 15px;
+    background: transparent !important;
+}
+
+#qty0{
+    border: 1px solid lightgrey;
+    height: 40px !important;
+    width: 80px !important;
+    border-radius: 10px !important;
 }
 
 .sectionButtons{
     display: flex;
+    /* border: 1px solid red; */
 }
 
 .sectionButtons button{
@@ -56,27 +73,83 @@
     margin: 7px;
     cursor: pointer;
     color: rgb(106, 133, 106);
+    width: auto;
 }
 
 .sectionButtons button:hover{
     text-decoration: underline;
 }
 
-@media (min-width:250px) and (max-width:900px){
+/* CSS for mobile view */
+
+.cartCard-buttons-mobile-view{
+    display: none;
+}
+
+
+@media (min-width:250px) and (max-width:778px){
     .cartCard{
-        /* flex-direction: column; */
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        align-items: center;
+        justify-content: space-around !important;
+        /* border: 1px solid red; */
+    }
+
+    .cartCard-Actions{
+        display: none;
+    }
+
+    .cartCardBody #checkbox1{
+        display: none;
+    }
+
+    .cardDescription{
         width: 100%;
     }
 
-    .cartCard-buttons{
+/*------- Mobile view------------ */
+
+    .cartCard-buttons-mobile-view{
+        width: 90%;
+        height: 10%;
         display: flex;
-        flex-wrap: wrap;
-        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        /* border: 1px solid red;     */
+    }
+    
+    .productImage{
+        width: 40%;
+        height: 70% !important;
+        /* border: 1px solid red; */
     }
 
-    .sectionButtons{
-        display: flex;
+    .productDescription{
+        width: 62%;
+        /* border: 1px solid red; */
     }
 
+    .qtyBtn{
+        height: 20px;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        border: 1px solid black;
+    }
+
+    .cartCard-buttons-mobile-view #qty1{
+        width: 30px;
+        text-align: center; 
+        display: flex;   
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .qtyBtn button{
+        height: 100%;
+    }
 
 }

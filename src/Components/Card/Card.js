@@ -3,22 +3,17 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import "./Card.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
 export default function ImgMediaCard({ data, search }) {
-  // console.log(search);
-  // console.log(data);
-  // If you want to make a POST request, you can do it here
 
   const navigate = useNavigate();
 
-  //Get all products from cart of current user---------------------
-
-  const [cartData, setData] = useState([]);
+  // Get all products from the cart of the current user
+  const [cartData, setCartData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -30,63 +25,45 @@ export default function ImgMediaCard({ data, search }) {
     axios
       .get(apiUrl)
       .then((response) => {
-        // Set the data in state
-        setData(response.data);
+        setCartData(response.data);
         sessionStorage.setItem("cartLength", response.data.length);
-        // console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {
-        // Handle errors
         setError(err);
         setLoading(false);
       });
   }, []);
 
-// Authentication of Add product to cart------------
-
+  // Function to add a product to the cart
   function addToCart(product) {
-    let isLogedIn = sessionStorage.getItem("userId");
+    product["quantity"] = 1;
+    const isLoggedIn = sessionStorage.getItem("userId");
 
-    if (isLogedIn) {
-      addProductToCart(product);
-    } else {
-      window.location.href = "/login";
-    }
-  }
+    if (isLoggedIn) {
+      // Check if the product is already in the cart
+      const isProductInCart = cartData.some((item) => item.pId === product.pId);
 
-// Add product to cart------------
-
-  function addProductToCart(product) {
-    product["userId"] = sessionStorage.getItem("userId");
-    // let user = sessionStorage.getItem("userId");
-
-    if (product) {
-
-      cartData.map((item)=>{
-        if(item.pId === product.pId)
-        {
-          axios
+      if (isProductInCart) {
+        alert("Product already exists in your cart...!");
+        window.location.href = "/shoppingCart";
+      }
+       else 
+       {
+        product.userId = sessionStorage.getItem("userId");
+        axios
           .post("http://localhost:8000/cart/", product)
           .then((response) => {
             console.log("POST request successful", response);
             // Redirect or perform any other action as needed
+            window.location.href = "/shoppingCart";
           })
           .catch((error) => {
-            // Handle errors from the POST request
             console.error("Error making POST request", error);
           });
-          window.location.href = "/userCart";
-        }
-        else
-        {
-          alert("Product already exist in your cart...!");
-        }
-        return; // Exit the function early
-      })
-    } 
-    else {
-      alert("Error occurred while adding product to the Cart");
+      }
+    } else {
+      window.location.href = "/login";
     }
   }
 
@@ -109,9 +86,11 @@ export default function ImgMediaCard({ data, search }) {
                     height: "300px !important",
                     objectFit: "contain",
                     padding: "1rem !important",
+                    cursor: "pointer",
                   }}
+                  onClick={()=>navigate('/productdetails',{state : {item}})}
                 />
-                <CardContent className='CardContent' onClick={()=>navigate(`/productdetails/${item.title}`)}>
+                <CardContent className='CardContent' onClick={()=>navigate('/productdetails',{state : {item}})}>
                   <Typography gutterBottom variant="h5" component="div">
                     {item.title.slice(0, 30)}
                   </Typography>

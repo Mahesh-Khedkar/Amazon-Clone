@@ -12,7 +12,6 @@ const ShopByCategories = () => {
 
   let { categoryName } = useParams();
 
-//   console.log(categoryName);
 //Fetch data for specific category
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
@@ -20,7 +19,6 @@ const ShopByCategories = () => {
 
   //For search functionality
   const [search, setSearch] = useState("");
-  // console.log(search);
 
   useEffect(() => {
     // Define the API URL you want to fetch data from
@@ -31,11 +29,9 @@ const ShopByCategories = () => {
       .then((response) => {
         // Set the data in state
         setData(response.data);
-        // console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {
-        // Handle errors
         setError(err);
         setLoading(false);
       });
