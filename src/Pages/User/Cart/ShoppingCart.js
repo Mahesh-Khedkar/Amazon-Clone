@@ -15,7 +15,7 @@ const Cart = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log(cartData)
+  // console.log(cartData)
 
   useEffect(() => {
     const apiUrl = `http://localhost:8000/cart?userId=${sessionStorage.getItem(
@@ -28,7 +28,6 @@ const Cart = () => {
         // Set the data in state
         setData(response.data);
         sessionStorage.setItem("cartLength", response.data.length);
-        console.log(response.data);
         setLoading(false);
       })
       .catch((err) => {
@@ -46,8 +45,6 @@ const Cart = () => {
         item.id === product.id &&
         item.userId === sessionStorage.getItem("userId")
       ) {
-        console.log(product.title);
-        console.log(item.title);
         axios
           .delete(`http://localhost:8000/cart/${item.id}`)
           .then((response) => {
@@ -69,7 +66,7 @@ const Cart = () => {
   // Selected product for order-----------
   const [productForOrder, setProductForOrder] = useState([]);
 
-  // console.log("productForOrder: " + JSON.stringify(productForOrder));
+  // console.log("productForOrder: " + productForOrder);
   // console.log(productForOrder.length)
 
   const selectedProductArray = [];
@@ -85,8 +82,6 @@ const Cart = () => {
       // If the product is not selected, add it
       setProductForOrder([...productForOrder, product]);
     }
-    console.log("productForOrder: " + productForOrder.data);
-    console.log(productForOrder.length);
   };
 
   // // Total order summary
@@ -110,10 +105,10 @@ const totalOrderValue = productForOrder.reduce((total, item) => {
         <div className="shopingCart">
           <section>
             <h1>Shopping Cart</h1>
-            <p>
+            {/* <p>
               <input type="checkbox" />
               Deselect all items
-            </p>
+            </p> */}
             <hr />
             <br />
             <CartCard
@@ -140,7 +135,7 @@ const totalOrderValue = productForOrder.reduce((total, item) => {
             <button
               className="addToCartBtn"
               style={{ width: "98%" }}
-              onClick={() => navigate('/checkout')}
+              onClick={()=>navigate('/checkout',{state : {productForOrder}})}
             >
               Proceed to Buy
             </button>

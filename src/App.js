@@ -64,6 +64,54 @@ useEffect(() => {
  // console.log(cartData);  
 
 
+ // User Data 
+ const [userData , setUserData] = useState([]);
+ const [loading3, setLoading3] = useState(true);
+ const [error3, setError3] = useState(null);
+
+ useEffect(() => {
+   // Define the API URL you want to fetch data from
+   const apiUrl = `http://localhost:8000/user?id=${sessionStorage.getItem("userId")}`
+   // Use Axios to fetch data from the API
+
+   // const userData =`http://localhost:8000/user?userName=${userId}`;
+
+   axios.get(apiUrl)
+     .then((response) => {
+       // Set the data in state
+       setUserData(response.data);
+       setLoading3(false);
+     })
+     .catch((err) => {
+       // Handle errors
+       setError3(err);
+       setLoading3(false);
+     });
+ }, []);
+
+// Add address-----------
+// function addAddress(address) {
+//   // Create a copy of the userData to avoid directly modifying the state
+//   const updatedUserData = { ...userData };
+  
+//   // Add the new address to the user data's "address" array
+//   if (!updatedUserData.address) {
+//     updatedUserData.address = [];
+//   }
+//   updatedUserData.address.push(address);
+
+//   // Perform the PUT request to update the user data
+//   axios.put(`http://localhost:8000/user/${sessionStorage.getItem("userId")}`, updatedUserData)
+//     .then((response) => {
+//       // Handle the response if needed
+//       console.log("User data updated:", response.data);
+//     })
+//     .catch((error) => {
+//       // Handle errors
+//       console.error("Error updating user data:", error);
+//     });
+// } 
+
   return (
     <div>
       {/* <Home/> */}
@@ -78,7 +126,7 @@ useEffect(() => {
           <Route path="/orders" element={<Orders/>} />
           <Route path="/categories/:categoryName" element={<ShopByCategories />} />
           <Route path="/productdetails" element={<ProductDescription products={products} cartData={cartData}/>} />
-          <Route path="/checkout" element={<CheckOut/>} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Routes>
       </BrowserRouter>
     </div>

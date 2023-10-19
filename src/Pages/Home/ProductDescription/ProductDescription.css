@@ -135,6 +135,12 @@
     border-radius: 10px;
 }
 
+#quantity{
+    height: 25px;
+    width: 50px;
+    margin-left: 15px;
+    text-align: center;
+}
 @media (min-width:250px) and (max-width:778px) {
 
     /* Product Description Navbar */
