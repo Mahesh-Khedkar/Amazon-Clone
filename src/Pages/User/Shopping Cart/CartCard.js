@@ -1,9 +1,37 @@
 import React from "react";
 import "./CartCard.css";
 import { useState } from "react";
+import axios from 'axios';
 
 const CartCard = ({ data, removeProduct, selectedProduct }) => {
   let [qty, setQty] = useState(1);
+
+//Change quantity ---------
+function changeQuantity(item, quantity) {
+  // Check if the item has a 'quantity' property before modifying it
+  if (item && item.hasOwnProperty('quantity')) {
+    // console.log(item);
+
+    // Update the quantity property
+    item.quantity = quantity;
+
+    // Send a PUT request to update the item on the server
+    // axios.put(`http://localhost:8000/cart?userId=${sessionStorage.getItem("userId")}&pId=${item.pId}`, item)
+    //   .then(response => {
+    //     // Handle the successful response here
+    //     console.log("Item updated successfully:", response.data);
+    //     data((prev)=>prev.filter((item1)=> item1.id !== item.id));
+    //   })
+    //   .catch(error => {
+    //     // Handle any errors that occurred during the request
+    //     console.error("Error updating item:", error);
+    //   });
+  } 
+  else 
+  {
+    console.error("Invalid item object or missing 'quantity' property.");
+  }
+}
 
   return (
     <div className="cartCardBody">
@@ -36,13 +64,14 @@ const CartCard = ({ data, removeProduct, selectedProduct }) => {
                     style={{ height: "30px", borderRadius: "3px" }}
                   >
                     Qty:
-                    <select
+                    {/* <select
                       value={item.quantity} // Set the value to track the quantity
                       onChange={(e) => {
                         const newQuantity = parseInt(e.target.value, 10);
                         // Handle the quantity change here, you may want to update your state accordingly.
                       }}
-                    >
+                    > */}
+                    <select value={item.quantity} onChange={(e) => changeQuantity(item, e.target.value)}>
                       <option value={1}>1</option>
                       <option value={2}>2</option>
                       <option value={3}>3</option>

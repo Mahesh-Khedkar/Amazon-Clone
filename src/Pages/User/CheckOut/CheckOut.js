@@ -2,7 +2,7 @@ import React from "react";
 import "./CheckOut.css";
 import Logo from "../../../Images/LoginLogo.png";
 import LockIcon from "@mui/icons-material/Lock";
-import { json, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CheckOut = ({addAddress}) => {
   let navigate = useNavigate();
@@ -12,11 +12,12 @@ const CheckOut = ({addAddress}) => {
 
   // console.log(product)
 
-    // Total order summary
-const totalOrderValue = product.reduce((total, item) => {
-  const itemTotal = (item.price * item.quantity).toFixed(2);
-  return (parseFloat(total) + parseFloat(itemTotal)).toFixed(2);
-}, "0.00");
+//Total order summary-----------
+
+// const totalOrderValue = product.reduce((total, item) => {
+//   const itemTotal = (item.price * item.quantity).toFixed(2);
+//   return (parseFloat(total) + parseFloat(itemTotal)).toFixed(2);
+// }, "0.00");
 
 
   return (
@@ -42,9 +43,10 @@ const totalOrderValue = product.reduce((total, item) => {
                 Add delivery instructions
               </p>
             </div>
+            <br/>
             <hr />
             <div className="confirmAddress">
-              <button>
+              <button onClick={()=>navigate('/pay',{state : {product}})}>
                 <b>Use this address</b>
               </button>
             </div>
@@ -52,7 +54,7 @@ const totalOrderValue = product.reduce((total, item) => {
         </div>
         <div className="rightContainer">
           <div className="confirmAddress">
-            <button style={{width:'100%'}} onClick={()=>navigate('/productdetails',{state : {}})}>
+            <button style={{width:'100%'}} onClick={()=>navigate('/pay',{state : {product}})}>
               <b>Use this address</b>
             </button>
             <p style={{textAlign:'center'}}>
@@ -63,7 +65,7 @@ const totalOrderValue = product.reduce((total, item) => {
               Order Summary
             </h3>
             <p>
-              Items:
+              Items: <span style={{marginLeft:'30px'}}>{product.length}</span>
             </p>
             <p>
               Delivery:
@@ -71,7 +73,7 @@ const totalOrderValue = product.reduce((total, item) => {
             <hr/>
             <h3 style={{color:'rgb(219, 63, 36)'}}>
               Order Total: 
-              ₹ {totalOrderValue}
+              ₹ {product.totalOrderPrice}
             </h3>
             <hr/>
             <br/>

@@ -29,10 +29,26 @@ function DrawerAppBar(props) {
 
   const { setSearch } = props;
 
-  //for navigate between pages
+//for navigate between pages
   let navigate = useNavigate();
+  const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
+
 
 // Account and Lists navigation---------------------------------------------------------
+
+  function navigateToAccounts(){
+    if (isLoggedIn) 
+    {
+        navigate("/account");
+    } 
+    else 
+    {
+      navigate("/login"); // Redirect to the "login" page if the user is not logged in
+    }
+  };
+
+
+// Orders & Returns navigation---------------------------------------------------------
 
   const navigateToOrders = () => {
     const isLoggedIn = sessionStorage.getItem("userName"); // Check if the user is logged in
@@ -64,8 +80,6 @@ function DrawerAppBar(props) {
   function logout() {
     sessionStorage.clear();
     alert("Logged out");
-    let logOutButton = document.getElementsByClassName(".logOut");
-    logOutButton.innerHTML="Sign In";
   }
 
   //Cart count---------------------------------------------------------------------------
@@ -112,7 +126,7 @@ function DrawerAppBar(props) {
           <ListItemButton sx={{ textAlign: "center", display:'flex',flexDirection:'column'}}>
             <Button
               className="navbarButtons"
-              onClick={() => navigateToOrders()}
+              onClick={() => navigateToAccounts()}
             >
               <section
                 style={{
@@ -274,7 +288,7 @@ function DrawerAppBar(props) {
           <Box className="NavButtons" sx={{ display: { xs: "none", sm: "flex" } }}>
             <button
               className="navbarButtons"
-              onClick={() => navigateToOrders()}
+              onClick={() => navigateToAccounts()}
             >
               <section
                 style={{
@@ -311,7 +325,17 @@ function DrawerAppBar(props) {
                       <li>Manage Your Content and Devices</li>
                       <li>Your Free Amazon Business Account</li>
                       <li>Switch Accounts</li>
-                      <li onClick={() => logout()}>Sign Out</li>
+                      {isLoggedIn?(
+                        <>
+                          <li onClick={() => logout()}>Sign Out</li>
+                        </>)
+                        :(
+                          <>
+                            <li onClick={() => navigate('/login')}>Sign In</li>
+                          </>
+                        )
+                        }
+                      
                     </ul>
                   </div>
                 </div>

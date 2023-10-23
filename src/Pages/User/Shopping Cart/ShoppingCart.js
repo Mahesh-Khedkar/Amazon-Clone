@@ -51,10 +51,12 @@ const Cart = () => {
             // Handle the response from the DELETE request
             console.log("DELETE request successful", response);
             // Redirect or perform any other action as needed
-            window.location.href = "/shoppingCart"; // Assuming 'navigate' is not defined
+            // window.location.href = "/shoppingCart"; // Assuming 'navigate' is not defined
             // alert("Product Removed ..!");
 
-            // setData((prev)=>prev.filter((item)=> item.id !== product.id));
+            setData((prev)=>prev.filter((item)=> item.id !== product.id));
+            sessionStorage.setItem("cartLength", cartData.length);
+
           })
           .catch((error) => {
             console.error("Error making DELETE request", error);
@@ -66,11 +68,6 @@ const Cart = () => {
   // Selected product for order-----------
   const [productForOrder, setProductForOrder] = useState([]);
 
-  // console.log("productForOrder: " + productForOrder);
-  // console.log(productForOrder.length)
-
-  const selectedProductArray = [];
-
   const selectedProduct = (product) => {
     if (productForOrder.includes(product)) {
       // If the product is already selected, remove it
@@ -78,28 +75,28 @@ const Cart = () => {
         (selectedProduct) => selectedProduct.id !== product.id
       );
       setProductForOrder(updatedProductForOrder);
-    } else {
+    }
+     else 
+     {
       // If the product is not selected, add it
       setProductForOrder([...productForOrder, product]);
     }
   };
 
-  // // Total order summary
-  // const totalOrderValue = productForOrder.reduce(
-  //   (total, item) => (total + (item.price * item.quantity)).toFixed(2),
-  //   0
-  // );
 
-  // Total order summary
-const totalOrderValue = productForOrder.reduce((total, item) => {
-  const itemTotal = (item.price * item.quantity).toFixed(2);
+// Total order summary---------------
+  const totalOrderValue = productForOrder.reduce((total, item) => {
+  const itemTotal = (item.price * parseInt(item.quantity)).toFixed(2);
   return (parseFloat(total) + parseFloat(itemTotal)).toFixed(2);
-}, "0.00");
+  // return((itemTotal));
+},0);
+
+productForOrder["totalOrderPrice"]=totalOrderValue;
 
   return (
     <div className="userCartBody">
       <div>
-        <Navbar />
+        <Navbar/>
       </div>
       <div className="userCartContent">
         <div className="shopingCart">

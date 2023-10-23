@@ -1,3 +1,35 @@
 .accountBody{
     
 }
+
+.accountContent{
+    padding: 0px 10% 0px 10%;
+}
+
+.accountContent h1{
+    font-weight: 5;
+
+}
+
+.accountCardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.accountCard{
+    width: 30%;
+    height: 115px;
+    margin: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 7px;
+    display: flex;
+    cursor: pointer;
+}
+
+.accountCard img{
+    width: 30%;
+    margin: 2px;
+    height: 97%;
+    /* border: 1px solid red; */
+}

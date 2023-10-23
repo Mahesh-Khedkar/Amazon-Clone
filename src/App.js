@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Pages/Home/Home';
 import Cart from './Pages/Home/Cart/Cart';
-import ShoppingCart from './Pages/User/Cart/ShoppingCart';
+import ShoppingCart from './Pages/User/Shopping Cart/ShoppingCart';
 import Account from './Pages/User/UserAccount/Account';
 import Login from './Pages/Forms/User/Login/Login';
 import Register from './Pages/Forms/User/Register/Register';
@@ -11,6 +11,8 @@ import ShopByCategories from './Pages/Home/ShopByCategories';
 import ProductDescription from './Pages/Home/ProductDescription/ProductDescription';
 import axios from 'axios';
 import CheckOut from './Pages/User/CheckOut/CheckOut';
+import Pay from './Pages/User/Payment/Pay';
+import Addresses from './Pages/User/Addresses/Addresses';
 
 
 const App = () => {
@@ -127,6 +129,8 @@ useEffect(() => {
           <Route path="/categories/:categoryName" element={<ShopByCategories />} />
           <Route path="/productdetails" element={<ProductDescription products={products} cartData={cartData}/>} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/pay" element={<Pay/>} />
+          <Route path="/addresses" element={<Addresses/>} />
         </Routes>
       </BrowserRouter>
     </div>

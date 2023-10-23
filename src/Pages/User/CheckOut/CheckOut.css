@@ -69,17 +69,20 @@
 }
 
 .confirmAddress{
-
+   
 }
 
 .confirmAddress button{
     margin-top: 10px;
+    /* width: auto;
+    padding: 5px 50px 5px 50px; */
     background: rgb(253, 224, 39);
     height: 35px;
     width: 18%;
     font-size: 14px;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .checkOutBody .rightContainer{
