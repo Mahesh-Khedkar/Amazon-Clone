@@ -13,6 +13,7 @@ import axios from 'axios';
 import CheckOut from './Pages/User/CheckOut/CheckOut';
 import Pay from './Pages/User/Payment/Pay';
 import Addresses from './Pages/User/Addresses/Addresses';
+import AddAddress from './Pages/User/Addresses/AddAddress';
 
 
 const App = () => {
@@ -91,6 +92,31 @@ useEffect(() => {
      });
  }, []);
 
+//Get all addresses from cart of current user---------------------
+
+  const [addressData, setAddressData] = useState([]);
+  const [loading4, setLoading4] = useState(true);
+  const [erro4r, setError4] = useState(null);
+
+  useEffect(() => {
+    const apiUrl = `http://localhost:8000/user?id=${sessionStorage.getItem(
+      "userId"
+    )}`;
+
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        // Set the data in state
+        setAddressData(response.data);
+        setLoading4(false);
+      })
+      .catch((err) => {
+        // Handle errors
+        setError4(err);
+        setLoading4(false);
+      });
+  }, []);
+
 // Add address-----------
 // function addAddress(address) {
 //   // Create a copy of the userData to avoid directly modifying the state
@@ -128,9 +154,10 @@ useEffect(() => {
           <Route path="/orders" element={<Orders/>} />
           <Route path="/categories/:categoryName" element={<ShopByCategories />} />
           <Route path="/productdetails" element={<ProductDescription products={products} cartData={cartData}/>} />
-          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/checkout" element={<CheckOut addressData={addressData}/>} />
           <Route path="/pay" element={<Pay/>} />
-          <Route path="/addresses" element={<Addresses/>} />
+          <Route path="/addresses" element={<Addresses addressData={addressData}/>} />
+          <Route path="/addaddress" element={<AddAddress/>} />
         </Routes>
       </BrowserRouter>
     </div>

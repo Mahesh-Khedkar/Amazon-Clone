@@ -1,0 +1,44 @@
+.payLeftContainer{
+    width: 64%;
+    margin-left: 3%;
+    /* border: 1px solid red ; */
+}
+
+.deliveryAddress{
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.deliveryAddressCard{
+    width: 30%;
+    /* border: 1px solid red; */
+}
+
+.deliveryAddress span{
+    color: rgb(46, 140, 157);
+    cursor: pointer;
+}
+
+.deliveryAddress span:hover{
+    color: rgb(255, 94, 0);
+    text-decoration: underline;
+    /* border-bottom: 1px solid rgb(255, 94, 0); */
+}
+
+.checkoutAddresses{
+    /* border: 1px solid red; */
+}
+
+.reviewPay{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.confirmOrderToPay{
+    line-height: 5px;
+
+}

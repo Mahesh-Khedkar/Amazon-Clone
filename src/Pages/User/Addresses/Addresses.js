@@ -4,38 +4,11 @@ import axios from "axios";
 import Navbar from "../../../Components/Navbar/Navbar";
 import Footer from "../../../Components/Footer/Footer";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 
-const Addresses = () => {
-  //Get all addresses from cart of current user---------------------
+const Addresses = (addressData) => {
 
-  const [addressData, setAddressData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  //   addressData.map((address)=>{
-  //     return(
-  //         console.log(address.address)
-  //     )
-  //   })
-
-  useEffect(() => {
-    const apiUrl = `http://localhost:8000/user?id=${sessionStorage.getItem(
-      "userId"
-    )}`;
-
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        // Set the data in state
-        setAddressData(response.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        // Handle errors
-        setError(err);
-        setLoading(false);
-      });
-  }, []);
+    let navigate = useNavigate();
 
   return (
     <div className="userOrdersBody">
@@ -51,28 +24,30 @@ const Addresses = () => {
             <h1>Your Addresses</h1>
           </div>
           <div className="addressContainer">
-                <div className="addAddress">
+            <div className="addAddress" onClick={()=> navigate('/addaddress')}>
                 <AddIcon style={{ fontSize: "70px", color: "lightGrey" }} />
                 <h2>Add Address</h2>
-                </div>
-                <div className="addressesContainer">
-                {addressData.map((item) => {
+            </div>
+            <div className="addressesContainer">
+            {addressData.map((item) => {
+                return (
+                <div key={item.id} className="addressesContainer">
+                    {item.address.map((address, index) => {
                     return (
-                    <div key={item.id} className="addressesContainer">
-                        {item.address.map((address, index) => {
-                        return (
-                            <div className="addresses">
-                            <p>
-                                <b>{address.name}</b>
-                            </p>
-                            <p key={index}>{address.city}</p>
-                            </div>
-                        );
-                        })}
-                    </div>
+                        <div className="addresses">
+                        <p>
+                            <b>{address.name}</b>
+                        </p>
+                        <p key={index}>{address.city},{" "+address.state},{" "+ address.pincode}</p>
+                        <p>{address.country}</p>
+                        <p>Phone number : {" "+ item.mobileNumber}</p>
+                        </div>
                     );
-                })}
+                    })}
                 </div>
+                );
+            })}
+            </div>
           </div>
         </div>
       </div>

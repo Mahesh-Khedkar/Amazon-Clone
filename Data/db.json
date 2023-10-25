@@ -10,22 +10,16 @@
         {
           "name": "Mahesh Khedkar",
           "city": "Pune",
-          "state":"Maharashtra",
+          "state": "Maharashtra",
           "country": "India",
           "pincode": 411014
         },
         {
           "name": "Ram Khedkar",
           "city": "Ahmednagar",
-          "state":"Maharashtra",
-          "pincode": 412308
-        },
-        {
-          "name": "Rameshwar Khedkar",
-          "city": "Shevgaon",
-          "state":"Maharashtra",
+          "state": "Maharashtra",
           "country": "India",
-          "pincode": 414502
+          "pincode": 412308
         }
       ]
     },
@@ -33,20 +27,6 @@
       "id": 2,
       "userName": "guru",
       "password": "4321"
-    },
-    {
-      "userName": "pramod",
-      "mobileNumber": "244567141323",
-      "email": "jsdhgdgdh@gmail.com",
-      "password": "1234",
-      "id": 3
-    },
-    {
-      "userName": "senwell",
-      "mobileNumber": "6779787",
-      "email": "senwell@ghhj",
-      "password": "1234",
-      "id": 4
     }
   ],
   "cart": [
@@ -83,7 +63,7 @@
   ],
   "orders": [
     {
-      "data": [
+      "products": [
         {
           "pId": 1,
           "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -101,13 +81,19 @@
         }
       ],
       "finalOrderPrice": "149.95",
-      "buyerAddress": "Pune - 411014",
+      "buyersAddress": {
+        "name": "Ram Khedkar",
+        "city": "Ahmednagar",
+        "state": "Maharashtra",
+        "country": "India",
+        "pincode": 412308
+      },
       "userId": "1",
-      "date": "October 20, 2023",
+      "date": "October 25, 2023",
       "id": 1
     },
     {
-      "data": [
+      "products": [
         {
           "pId": 2,
           "title": "Mens Casual Premium Slim Fit T-Shirts ",
@@ -125,9 +111,15 @@
         }
       ],
       "finalOrderPrice": "62.30",
-      "buyerAddress": "Pune - 411014",
+      "buyersAddress": {
+        "name": "Mahesh Khedkar",
+        "city": "Pune",
+        "state": "Maharashtra",
+        "country": "India",
+        "pincode": 411014
+      },
       "userId": "1",
-      "date": "October 20, 2023",
+      "date": "October 25, 2023",
       "id": 2
     }
   ],

@@ -19,7 +19,7 @@ const OrdersCard = (ordersData) => {
                   </span>
                   <span>
                     TOTAL <br />
-                    {"₹ " + (item.data[0].price * parseFloat(item.data[0].quantity))}
+                    {"₹ " + (item.products[0].price * parseFloat(item.products[0].quantity))}
                   </span>
                   <span>
                     SHIP TO <br />
@@ -43,10 +43,10 @@ const OrdersCard = (ordersData) => {
                   </h3>
                   <div className="orderedProduct">
                     <div className="orderedProductImage">
-                      <img src={item.data[0].image}/>
+                      <img src={item.products[0].image}/>
                     </div>
                     <div className="orderedProductDescription">
-                    {item.data[0].title}
+                    {item.products[0].title}
                     </div>
                   </div>
                 </div>

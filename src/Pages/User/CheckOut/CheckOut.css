@@ -30,17 +30,18 @@
     justify-content: space-around;
 }
 
-.checkOutBody .leftContainer{
+.checkOutBody .leftAddressContainer{
     height: 30%;
     width: 60%;
     /* margin-left: 8%; */
+    /* border: 1px solid red;  */
 }
 
 .leftContainer h3{
     color: rgb(219, 63, 36);
 }
 
-.addresses{
+.checkoutAddresses{
     border: 1px solid lightgrey;
     padding: 0px 20px 20px 20px;
     border-radius: 10px;
@@ -54,18 +55,38 @@
     font-weight: 10;
 }
 
-.addresses .addressCard{
-    border: 1px solid rgb(249, 200, 111);
-    background: rgb(249, 245, 237);
-    border-radius: 7px;
+.addressesContainer .addressCard{
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    /* border: 1px solid rgb(249, 200, 111); */
+    /* background: rgb(249, 245, 237);
+    border-radius: 7px; */
     padding: 0px 10px 0px 10px;
 }
 
-.addresses .addressCard:{
+.addressesContainer .addressCard:hover{
     border: 1px solid rgb(244, 165, 17);
-    background: rgb(254, 234, 196);
-    border-radius: 10px;
+    background: rgb(249, 245, 237);
+    border-radius: 7px;
+}
 
+
+.addressesContainer .addressCard:focus-within{
+    border: 1px solid rgb(244, 165, 17);
+    background: rgb(249, 245, 237);
+    border-radius: 7px;
+}
+
+.addressCard span{
+    color: rgb(46, 140, 157);
+    font-weight: 10 !important;
+    cursor: pointer;
+}
+
+.addressCard span:hover{
+    color: rgb(255, 94, 0);
+    border-bottom: 1px solid rgb(255, 94, 0);
 }
 
 .confirmAddress{
