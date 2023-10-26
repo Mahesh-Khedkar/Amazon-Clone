@@ -6,9 +6,8 @@ import Footer from "../../../Components/Footer/Footer";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 
-const Addresses = (addressData) => {
-
-    let navigate = useNavigate();
+const Addresses = ({ addressData }) => {
+  let navigate = useNavigate();
 
   return (
     <div className="userOrdersBody">
@@ -24,29 +23,37 @@ const Addresses = (addressData) => {
             <h1>Your Addresses</h1>
           </div>
           <div className="addressContainer">
-            <div className="addAddress" onClick={()=> navigate('/addaddress')}>
-                <AddIcon style={{ fontSize: "70px", color: "lightGrey" }} />
-                <h2>Add Address</h2>
+            <div className="addAddress" onClick={() => navigate("/addaddress")}>
+              <AddIcon style={{ fontSize: "70px", color: "lightGrey" }} />
+              <h2>Add Address</h2>
             </div>
             <div className="addressesContainer">
-            {addressData.map((item) => {
+              {addressData.map((item) => {
                 return (
-                <div key={item.id} className="addressesContainer">
+                  <div key={item.id} className="addressesContainer">
                     {item.address.map((address, index) => {
-                    return (
+                      return (
                         <div className="addresses">
-                        <p>
+                          <p>
                             <b>{address.name}</b>
-                        </p>
-                        <p key={index}>{address.city},{" "+address.state},{" "+ address.pincode}</p>
-                        <p>{address.country}</p>
-                        <p>Phone number : {" "+ item.mobileNumber}</p>
+                          </p>
+                          <p key={index}>
+                            {address.city},{" " + address.state},
+                            {" " + address.pincode}
+                          </p>
+                          <p>{address.country}</p>
+                          <p>Phone number : {" " + item.mobileNumber}</p>
+                          <span>Add delivery instructions</span>
+                          
+                          <div className="addressesControls">
+                            <span>Edit</span> | <span>Remove</span> | <span>Set as Default</span>
+                          </div>
                         </div>
-                    );
+                      );
                     })}
-                </div>
+                  </div>
                 );
-            })}
+              })}
             </div>
           </div>
         </div>

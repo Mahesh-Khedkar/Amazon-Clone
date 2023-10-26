@@ -24,16 +24,13 @@ const Pay = () => {
 
   // Place order-----------------
 
-  let[selectedPayment, setPayment] = useState();
+  let [selectedPayment, setPayment] = useState();
   // console.log(selectedAddress.length)
 
-  function selectPayment(){
-    if(selectedPayment)
-    {
+  function selectPayment() {
+    if (selectedPayment) {
       setReviewOrder(products);
-    }
-    else
-    {
+    } else {
       alert("Please select Payment Method");
     }
   }
@@ -83,7 +80,11 @@ const Pay = () => {
       <div className="checkoutBodyContent">
         <div className="payLeftContainer">
           <div className="deliveryAddress">
-            <h3 style={{ color: "black" }}>1 Delivery address</h3>
+            <h3 style={{ color: "black" }}>
+              1 
+              
+              <span style={{ marginLeft: "20px", color:'black', textDecoration:'none' }}>Delivery address</span>
+            </h3>
             <div className="deliveryAddressCard">
               <p>{products.buyersAddress.name}</p>
               <p>
@@ -103,14 +104,14 @@ const Pay = () => {
           <hr />
           <h3 style={{ color: "rgb(188, 70, 2)" }}>
             2{" "}
-            <span style={{ marginLeft: "20px" }}>Selected Payment method</span>
+            <span style={{ marginLeft: "20px", color:'rgb(188, 70, 2)' }}>Selected Payment method</span>
           </h3>
           <div className="checkoutAddresses">
             <h3 style={{ color: "black" }}>Your available balance</h3>
             <hr />
             <div className="addressCard">
               <p>
-                <input type="radio" onClick={()=> setPayment("cod")}/>
+                <input type="radio" onClick={() => setPayment("cod")} />
                 <b>Cash on Delivery/Pay on Delivery</b>
                 <br />
                 <section style={{ marginLeft: "20px", fontWeight: "10px" }}>
@@ -135,26 +136,47 @@ const Pay = () => {
               ) : (
                 <div className="reviewPay">
                   <div>
-                  <button
-                    style={{ width: "100%" }}
-                    onClick={() => placeOrder(reviewOrder)}
-                  >
-                    <b>Place your order</b>
-                  </button>
+                    <button
+                      style={{ width: "100%" }}
+                      onClick={() => placeOrder(reviewOrder)}
+                    >
+                      <b>Place your order</b>
+                    </button>
                   </div>
                   <div className="confirmOrderToPay">
-                  <h3 style={{ color: "rgb(219, 63, 36)" }}>
-              Order Total: ₹ {total}
-            </h3>
-                  <p style={{ textAlign: "center" }}>
-                    By placing your order, you agree to Amazon's privacy notice
-                    and conditions of use.
-                  </p>
+                    <h3 style={{ color: "rgb(219, 63, 36)" }}>
+                      Order Total: ₹ {total}
+                    </h3>
+                    <p style={{ textAlign: "center" }}>
+                      By placing your order, you agree to Amazon's privacy
+                      notice and conditions of use.
+                    </p>
                   </div>
                 </div>
               )}
             </div>
           </div>
+          <br />
+          <hr />
+          <div className="bottom">
+            <p>Need help? Check our <span>help pages</span> or <span>contact us</span></p>
+            <p>
+              When your order is placed, we'll send you an e-mail message
+              acknowledging receipt of your order. If you choose to pay using an
+              electronic payment method (credit card, debit card or net
+              banking), you will be directed to your bank's website to complete
+              your payment. Your contract to purchase an item will not be
+              complete until we receive your electronic payment and dispatch
+              your item. If you choose to pay using Pay on Delivery (POD), you
+              can pay using cash/card/net banking when you receive your item.
+            </p>
+            <p>See Amazon.in's <span>Return Policy</span>.</p>
+            <p>
+              Need to add more items to your order? Continue shopping on the
+              <span onClick={()=> navigate('/')}> Amazon.in homepage</span>.
+            </p>
+          </div>
+          <br/>
         </div>
         <div className="rightContainer">
           <div className="confirmAddress">

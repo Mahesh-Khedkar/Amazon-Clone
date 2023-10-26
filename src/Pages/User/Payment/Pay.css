@@ -17,12 +17,12 @@
     /* border: 1px solid red; */
 }
 
-.deliveryAddress span{
+.payLeftContainer span{
     color: rgb(46, 140, 157);
     cursor: pointer;
 }
 
-.deliveryAddress span:hover{
+.payLeftContainer span:hover{
     color: rgb(255, 94, 0);
     text-decoration: underline;
     /* border-bottom: 1px solid rgb(255, 94, 0); */

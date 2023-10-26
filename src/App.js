@@ -157,7 +157,7 @@ useEffect(() => {
           <Route path="/checkout" element={<CheckOut addressData={addressData}/>} />
           <Route path="/pay" element={<Pay/>} />
           <Route path="/addresses" element={<Addresses addressData={addressData}/>} />
-          <Route path="/addaddress" element={<AddAddress/>} />
+          <Route path="/addaddress" element={<AddAddress userData={userData}/>} />
         </Routes>
       </BrowserRouter>
     </div>
