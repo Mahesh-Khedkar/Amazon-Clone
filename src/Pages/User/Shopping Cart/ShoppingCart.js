@@ -99,6 +99,32 @@ productForOrder["totalOrderPrice"]=totalOrderValue;
         <Navbar/>
       </div>
       <div className="userCartContent">
+
+{/* ---------billCard For Mobile View --------------*/}
+<div className="BillCardForMobile">
+          <div className="billCard">
+            <p>
+              Your order is eligible for FREE Delivery. Select this option at
+              checkout. Details
+            </p>
+            <h3>
+              Subtotal {"(" + productForOrder.length} item {")"}: <sup>₹ </sup>
+              <b>{totalOrderValue}</b>
+            </h3>
+            <p>
+              <input type="checkbox" name="" value="" />
+              This order contains a gift
+            </p>
+            <button
+              className="addToCartBtn"
+              style={{ width: "98%" }}
+              onClick={()=>navigate('/checkout',{state : {productForOrder}})}
+            >
+              Proceed to Buy
+            </button>
+          </div>
+        </div>
+{/* ------------------------------------------- */}
         <div className="shopingCart">
           <section>
             <h1>Shopping Cart</h1>

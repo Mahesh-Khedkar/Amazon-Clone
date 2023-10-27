@@ -8,7 +8,7 @@ import "./Card.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-export default function ImgMediaCard({ data, search }) {
+export default function ImgMediaCard({ data, search, categoryName }) {
 
   const navigate = useNavigate();
 
@@ -70,29 +70,34 @@ export default function ImgMediaCard({ data, search }) {
   return (
     <div className="cardBody">
       {data &&
-        data.map((item) => {
+        data.filter((item) => item.category.toLowerCase().startsWith(categoryName)).map((item) => {
           return (
             <div style={{ margin: "10px" }} key={item.pId}>
               <Card
+                className='Card'
                 sx={{
-                  maxWidth: 300,
+                  // maxWidth: 300,
+                  // height: "450px",
+                  // border: "1px solid red"
                 }}
               >
                 <CardMedia
+                  className='CardMedia'
                   component="img"
                   alt="green iguana"
                   image={item.image}
                   sx={{
-                    height: "300px !important",
+                    // height: "230px !important",
                     objectFit: "contain",
-                    padding: "1rem !important",
-                    cursor: "pointer",
+                    // padding: "1rem !important",
+                    // cursor: "pointer",
+                    // border: "1px solid red"
                   }}
                   onClick={()=>navigate('/productdetails',{state : {item}})}
                 />
                 <CardContent className='CardContent' onClick={()=>navigate('/productdetails',{state : {item}})}>
                   <Typography gutterBottom variant="h5" component="div">
-                    {item.title.slice(0, 30)}
+                    {item.title.slice(0, 18)}
                   </Typography>
                   <Typography className='CardContent' variant="body2" color="text.secondary">
                     {item.description.slice(0, 50) + " ....."}

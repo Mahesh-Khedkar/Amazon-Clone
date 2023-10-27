@@ -2,8 +2,20 @@
     display: flex;
     flex-wrap: wrap;
     /* align-items: center; */
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     /* border: 1px solid red; */
+}
+
+.Card{
+    width: 300px;
+    height: 450px;   
+}
+
+.CardMedia{
+    height: 230px !important;
+    object-fit: contain;
+    padding: 1rem !important;
+    cursor: pointer;
 }
 
 .CardContent:hover{
@@ -13,17 +25,31 @@
 
 .cardActions{
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
 }
 
 .addToCartBtn{
     background: rgb(255, 221, 0) !important;
     color: black !important;
-    width: 70%;
+    width: 80%;
     height: 35px;
     font-size: 15px;
     border-radius: 30px !important;
     border: none !important;
     cursor: pointer;
+}
 
+@media (min-width:250px) and (max-width:550px){
+    .Card{
+        width: 90%;
+        height: auto;
+        margin: 5px;   
+    }
+    
+    .CardMedia{
+        height: 130px;
+        object-fit: contain;
+        padding: 1rem !important;
+        cursor: pointer;
+    }    
 }

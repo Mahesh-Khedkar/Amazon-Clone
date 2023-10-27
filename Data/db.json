@@ -5,23 +5,7 @@
       "userName": "Mahesh",
       "mobileNumber": "7774967947",
       "email": "khedkarmahesh180@gmail.com",
-      "password": "12345",
-      "address": [
-        {
-          "name": "Mahesh Khedkar",
-          "city": "Pune",
-          "state": "Maharashtra",
-          "country": "India",
-          "pincode": 411014
-        },
-        {
-          "name": "Ram Khedkar",
-          "city": "Ahmednagar",
-          "state": "Maharashtra",
-          "country": "India",
-          "pincode": 412308
-        }
-      ]
+      "password": "12345"
     },
     {
       "id": 2,
@@ -29,9 +13,34 @@
       "password": "4321"
     }
   ],
+  "useraddress": [
+    {
+      "userId": "1",
+      "name": "Mahesh Khedkar",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "country": "India",
+      "pincode": "411014",
+      "area": "Line-12, Rajaram Patil Nagar",
+      "house": "Anna Stays",
+      "landMark": "Kharadi",
+      "mobileNumber": "7774967947",
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "name": "Mahesh Khedkar",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "country": "India",
+      "pincode": "412308",
+      "area": "Line-12, Bhekarainagar",
+      "house": "Khushi PG",
+      "landMark": "Hadapsar",
+      "mobileNumber": "7774967947",
+      "id": 2
+    }
 
-  "profile":[
-    
   ],
   "cart": [
     {

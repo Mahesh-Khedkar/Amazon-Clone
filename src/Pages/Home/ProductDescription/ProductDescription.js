@@ -55,7 +55,7 @@ const ProductDescription = ({cartData}) => {
       <div className="productDescriptionContent">
         <nav className="productDescriptionNav">
           <div>
-            <h2>{product.category}</h2>
+            <h2>{product.category.toUpperCase()}</h2>
           </div>
           <div className="productDescriptionNavCenter">
             <div>
@@ -81,78 +81,80 @@ const ProductDescription = ({cartData}) => {
           </div>
         </nav>
 
-        {product ? (
-          <div className="productDescriptionContent-Container">
-            <div className="description">
-            <div className="productDetailsImage">
-              <img src={product.image} />
-            </div>
-            <div className="productDetailsDescription">
-              <h2>{product.title}</h2>
-              <p>{product.rating.rate} ⭐</p>
-              <hr />
-              <h3>
-                <sup>₹</sup> {product.price}
-              </h3>
-              <p>Inclusive of all taxes</p>
-              <hr />
-              <p>{product.description}</p>
-            </div>
+        <div className="descriptionContent">
+          {product ? (
+            <div className="productDescriptionContent-Container">
+              <div className="description">
+                <div className="productDetailsImage">
+                  <img src={product.image} />
+                </div>
+                <div className="productDetailsDescription">
+                  <h2>{product.title}</h2>
+                  <p>{product.rating.rate} ⭐</p>
+                  <hr />
+                  <h3>
+                    <sup>₹</sup> {product.price}
+                  </h3>
+                  <p>Inclusive of all taxes</p>
+                  <hr />
+                  <p>{product.description}</p>
+                </div>
 
-            </div>
-            <div className="productActions">
-              <h3>
-                M.R.P. <sup>₹</sup> {product.price}
-              </h3>
-              <p><span>FREE delivery</span> Thursday, 19 October. <span>Details</span></p>
-              <p>
-                Or fastest delivery Tomorrow, 15 October. Order within 2 hrs 27
-                mins. <span>Details</span>
-              </p>
-              <p>
-                <PlaceIcon style={{ color: "red" }} />
-                <span>Deliver to {sessionStorage.getItem("userName")} - Pune 411014‌</span>
-              </p>
-              <p>Sold by <span>{"   "}</span> and <span>Fulfilled by Amazon</span>.</p>
-              Quantity:
-              <select id="quantity" value={product.quantity} onChange={(e) => product.quantity = e.target.value}>
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-              </select>
-              <button
-                className="addToCartBtn"
-                style={{width:'98%',margin:'10px'}}
-                onClick={() => addToCart(product)}
-              >
-                Add to cart
-              </button>
-              <button
-                className="buyNowBtn"
-                style={{ width: '98%', backgroundColor: 'orange', margin: '10px' }}
-                // onClick={() => addToCart(product)}
-              >
-                Buy Now
-              </button>
-              <p><LockIcon/> <span>Secure transaction</span></p>
-              <div className="dialogBox">
-                <p><b>Your transaction is secure</b></p>
-                <p>We work hard to protect your security and privacy. Our payment security system encrypts your information during transmission. We don’t share your credit card details with third-party sellers, and we don’t sell your information to others. <span>Learn more</span></p>
               </div>
-              <input type="checkbox"/>
-              Add gift options
-              <hr/>
-              <select className="addToWishlist">
-                <option>Add to wishlist</option>
-              </select>
+              <div className="productActions">
+                <h3>
+                  M.R.P. <sup>₹</sup> {product.price}
+                </h3>
+                <p><span>FREE delivery</span> Thursday, 19 October. <span>Details</span></p>
+                <p>
+                  Or fastest delivery Tomorrow, 15 October. Order within 2 hrs 27
+                  mins. <span>Details</span>
+                </p>
+                <p>
+                  <PlaceIcon style={{ color: "red" }} />
+                  <span>Deliver to {sessionStorage.getItem("userName")} - Pune 411014‌</span>
+                </p>
+                <p>Sold by <span>{"   "}</span> and <span>Fulfilled by Amazon</span>.</p>
+                Quantity:
+                <select id="quantity" value={product.quantity} onChange={(e) => product.quantity = e.target.value}>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                </select>
+                <button
+                  className="addToCartBtn"
+                  style={{width:'98%',margin:'10px'}}
+                  onClick={() => addToCart(product)}
+                >
+                  Add to cart
+                </button>
+                <button
+                  className="buyNowBtn"
+                  style={{ width: '98%', backgroundColor: 'orange', margin: '10px' }}
+                  // onClick={() => addToCart(product)}
+                >
+                  Buy Now
+                </button>
+                <p><LockIcon/> <span>Secure transaction</span></p>
+                <div className="dialogBox">
+                  <p><b>Your transaction is secure</b></p>
+                  <p>We work hard to protect your security and privacy. Our payment security system encrypts your information during transmission. We don’t share your credit card details with third-party sellers, and we don’t sell your information to others. <span>Learn more</span></p>
+                </div>
+                <input type="checkbox"/>
+                Add gift options
+                <hr/>
+                <select className="addToWishlist">
+                  <option>Add to wishlist</option>
+                </select>
 
+              </div>
             </div>
-          </div>
-        ) : (
-          <p>Product not found</p>
-        )}
+          ) : (
+            <p>Product not found</p>
+          )}
+        </div>
       </div>
       <div>
         <Footer />

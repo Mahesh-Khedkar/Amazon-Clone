@@ -44,7 +44,7 @@ const ShopByCategories = () => {
       </div>
       <div className="categoryTag">
         <h1 style={{marginLeft:'30px',color:'orange',textShadow:'1px 1px 0px solid black'}}>{categoryName +"'s "} Collection</h1>
-        <Card data={data}/>
+        <Card data={data} categoryName={categoryName}/>
       </div>
       <div>
         <Footer />

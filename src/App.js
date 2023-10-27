@@ -99,7 +99,7 @@ useEffect(() => {
   const [erro4r, setError4] = useState(null);
 
   useEffect(() => {
-    const apiUrl = `http://localhost:8000/user?id=${sessionStorage.getItem(
+    const apiUrl = `http://localhost:8000/useraddress?userId=${sessionStorage.getItem(
       "userId"
     )}`;
 

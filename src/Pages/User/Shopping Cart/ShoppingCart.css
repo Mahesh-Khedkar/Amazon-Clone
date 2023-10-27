@@ -45,8 +45,55 @@
     font-weight: 5;
 }
 
-@media (min-width:250px) and (max-width:900px){
+.BillCardForMobile{
+    display: none;
+}
+
+@media (min-width:250px) and (max-width:768px){
     .shopingCart{
         width: 100%;
     }
+
+    .userCartContent{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .BillCardForMobile{
+        display: block;
+        width: 100%;
+        /* margin: 20px; */
+        /* padding: 15px; */
+        background: transparent;
+        display: flex;
+        align-items: first baseline;
+        /* flex-direction: column; */
+        justify-content: space-evenly;
+    
+    }
+
+    .RightContainer{
+        display: none;
+    }
+}
+
+@media (min-width:768px) and (max-width:940px){
+    .shopingCart{
+        width: 75%;
+    }    
+
+    .RightContainer{
+        width: 28%;
+    }
+
+    .RightContainer{
+        width: 30%;
+        /* border: 1px solid red; */
+    }
+
+    .billCard{
+        margin: 20px 5px 5px 0px;
+        /* border: 1px solid red; */
+    }
+
 }

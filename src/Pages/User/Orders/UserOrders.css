@@ -3,7 +3,7 @@
 }
 
 .userOrdersContent{
-
+    /* border: 1px solid red; */
 }
 
 .userOrdersContentLeft{
@@ -11,6 +11,8 @@
     margin-left: 4%;
     margin-top: 5px;
     /* border: 1px solid lightgrey; */
+    /* border: 1px solid red; */
+
 }
 
 .userOrdersContentLeft h1{
@@ -18,7 +20,10 @@
 }
 
 .ordersNav{
+    width: 100%;
     display: flex;
+    /* flex-wrap: wrap; */
+    /* border: 1px solid red; */
 }
 
 .ordersNav button{
@@ -36,12 +41,19 @@
     border-bottom: 3px solid orange;
 }
 
+.ordersCardDiv{
+    /* border: 1px solid red; */
+}
+
+/* ------------OrdersCard ---------*/
+
 .ordersCard{
     border: 1px solid lightgrey;
     border-radius: 5px;
     width: 100%;
     height: auto;
     margin: 10px;
+    /* border: 1px solid red; */
 }
 
 
@@ -93,6 +105,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    /* border: 1px solid red; */
 }
 
 .orderedProductImage{
@@ -138,4 +151,63 @@
 .archiveOrder:hover{
     text-decoration: color( orange) !important;
     text-decoration: underline orange;
+}
+
+@media (min-width:250px) and (max-width:650px){
+    .userOrdersContentLeft{
+        width: 90%;
+        margin: 5px 5px opx 5px;
+        /* border: 1px solid lightgrey; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .ordersNav{
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+
+    .ordersNav button{
+        /* border: 1px solid black; */
+    }
+    
+
+    .ordersCardDiv{
+        margin-left: 0px;
+    }
+
+    .ordersCard{
+        margin: 15px 0px 15px 0px;
+    }
+    
+    .orderDetails .leftPart{
+        margin: 0px;
+    }
+
+    .leftPart span{
+        margin: 10px;
+    }
+    
+    .rightPart{
+        margin: 0px;
+    }
+    
+    .orderedProductDetailsRight{
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .orderedProductDetailsRight button{
+        margin: 10px;
+        border-radius: 8px;
+        font-size: 15px;
+        border: 1px solid lightgrey;
+        height: auto;
+        background: transparent;
+        cursor: pointer;
+    }
 }

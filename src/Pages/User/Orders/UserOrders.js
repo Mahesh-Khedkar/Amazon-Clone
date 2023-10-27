@@ -59,7 +59,7 @@ const UserOrders = () => {
               <b>{ordersData.length} Orders </b> palced in past month
             </div>
           </div>
-          <div>
+          <div className="ordersCardDiv">
             <OrdersCard ordersData={ordersData}/>
           </div>
         </div>

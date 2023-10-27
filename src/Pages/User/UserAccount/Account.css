@@ -19,7 +19,7 @@
 
 .accountCard{
     width: 30%;
-    height: 115px;
+    height: auto;
     margin: 10px;
     border: 1px solid lightgrey;
     border-radius: 7px;
@@ -32,4 +32,31 @@
     margin: 2px;
     height: 97%;
     /* border: 1px solid red; */
+}
+
+@media (min-width:650px) and (max-width:850px)
+{
+    .accountContent{
+        padding: 0px 10% 0px 10%;
+    }
+    
+    .accountCard{
+        width: 45%;
+        height: auto;
+        margin: 10px;    
+    }
+}
+
+@media (min-width:250px) and (max-width:650px)
+{
+    .accountContent{
+        padding: 0px 10% 0px 10%;
+    }
+    
+    .accountCard{
+        width: 90%;
+        height: auto;
+        margin: 10px;    
+    }
+
 }

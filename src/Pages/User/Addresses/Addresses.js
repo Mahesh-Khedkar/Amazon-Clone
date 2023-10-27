@@ -22,38 +22,35 @@ const Addresses = ({ addressData }) => {
           <div>
             <h1>Your Addresses</h1>
           </div>
-          <div className="addressContainer">
+          <div className="addressContentContainer">
+          
             <div className="addAddress" onClick={() => navigate("/addaddress")}>
               <AddIcon style={{ fontSize: "70px", color: "lightGrey" }} />
               <h2>Add Address</h2>
             </div>
+
             <div className="addressesContainer">
-              {addressData.map((item) => {
-                return (
-                  <div key={item.id} className="addressesContainer">
-                    {item.address.map((address, index) => {
-                      return (
-                        <div className="addresses">
-                          <p>
-                            <b>{address.name}</b>
-                          </p>
-                          <p key={index}>
-                            {address.city},{" " + address.state},
-                            {" " + address.pincode}
-                          </p>
-                          <p>{address.country}</p>
-                          <p>Phone number : {" " + item.mobileNumber}</p>
-                          <span>Add delivery instructions</span>
-                          
-                          <div className="addressesControls">
-                            <span>Edit</span> | <span>Remove</span> | <span>Set as Default</span>
-                          </div>
-                        </div>
-                      );
-                    })}
+              {addressData.map((address) => (
+                <div className="addresses" key={address.id}>
+                  <p>
+                    <b>{address.name}</b>
+                  </p>
+                  <p>{address.house}</p>
+                  <p>{address.area}</p>
+                  <p>{address.landMark},</p>
+                  <p>
+                    {address.city}, {address.state}, {address.pincode}
+                  </p>
+                  <p>{address.country}</p>
+                  <p>Phone number: {address.mobileNumber}</p>
+                  <span>Add delivery instructions</span>
+                  <br/>
+                  <div className="addressControls">
+                    <span>Edit</span> | <span>Remove</span> |{" "}
+                    <span>Set as Default</span>
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
           </div>
         </div>

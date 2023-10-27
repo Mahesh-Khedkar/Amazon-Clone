@@ -11,6 +11,14 @@
     /* border: 1px solid red; */
 }
 
+.addressContentContainer{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+}
+
 .addAddress{
     height: 290px;
     width: 360px;
@@ -25,16 +33,13 @@
 }
 
 .addressesContainer{
-    /* height: 290px;
-    width: 360px;
-    border: 1px solid red;
-    border-radius: 10px; */
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    align-items: center;
     width: auto;
     /* border: 1px solid red; */
-
 }
+
 .addresses{
     height: 290px;
     width: 360px;
@@ -43,11 +48,19 @@
     border: 1px solid lightgrey;
     border-radius: 10px;
     box-shadow: 0px 2px 2px lightgrey;
-    /* display: flex; */
+    line-height: 10px;
+    /* border: 1px solid red; */
 }
 
-.addressesControls{
-    margin-top: 50px;
+.addressControls{
+    position: sticky;
+    bottom: 0px;
+    margin-top: 30px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 18px;
 }
 
 .addresses span{
@@ -59,4 +72,18 @@
 .addresses span:hover{
     color: orangered;
     text-decoration: underline;
+}
+
+
+@media (min-width:250px) and (max-width:850px)
+{
+    .addressContentContainer{
+        /* flex-direction: column; */
+    }
+
+    .addressesContainer{
+        width: 100%;
+        flex-wrap: wrap;
+        /* border: 1px solid red; */
+    }
 }

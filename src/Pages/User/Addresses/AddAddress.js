@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AmazonHub from '../../../Images/AmazonHub.png'
 
-const AddAddress = ({userData}) => {
+const AddAddress = () => {
 
   let navigate = useNavigate();
 
@@ -24,11 +24,11 @@ const AddAddress = ({userData}) => {
   let [state, setState] = useState("");
 
 
-  let [usersData, setUserData] = useState({userData});
+  // let [usersAddress, setUserAddress] = useState();
 
   function addAddress() {
-    // Assuming order is an array of products
     const address = {
+      userId: sessionStorage.getItem("userId"),
       name: fullName,
       city: city,
       state: state,
@@ -41,15 +41,18 @@ const AddAddress = ({userData}) => {
     };
 
     // Create a copy of userData and add the new address to it
-    const updatedUserData = { ...usersData };
-    updatedUserData.address.push(address);
+    // const updatedUserData = { ...userData };
+    // updatedUserData[0].address.push(address);
 
     // Update the state with the new userData
-    setUserData(updatedUserData);
+    // setUserData(updatedUserData);
+    console.log("Final Data : "+ address)
 
     // Send the updated userData to the server
-    axios
-      .put(`http://localhost:8000/user/id=${sessionStorage.getItem("userId")}`, updatedUserData)
+    if(address){
+      axios
+      // .post(`http://localhost:8000/user/id=${sessionStorage.getItem("userId")}`, updatedUserData)
+      .post(`http://localhost:8000/useraddress`, address)
       .then((response) => {
         console.log("POST request successful", response);
         navigate("/addresses");
@@ -57,6 +60,7 @@ const AddAddress = ({userData}) => {
       .catch((error) => {
         console.error("Error making POST request", error);
       });
+    }
   }
 
 
@@ -95,6 +99,7 @@ const AddAddress = ({userData}) => {
                 </div>
                 <div className="addressInput">
                   <select className="selectCountry" onChange={(e) => setCountry(e.target.value)}>
+                    <option>Select Country</option>
                     <option value={"India"}>India</option>
                     <option value={"Iraq"}>Iraq</option>
                     <option value={"Indonesia"}>Indonesia</option>

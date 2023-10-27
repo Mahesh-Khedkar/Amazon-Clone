@@ -15,24 +15,19 @@ const CheckOut = ({ addAddress, addressData }) => {
 
   //selected address-------------------------------------------
 
-  let[selectedAddress, setSelectedAddress] = useState();
+  let [selectedAddress, setSelectedAddress] = useState();
   // console.log(selectedAddress.length)
 
-  function selectAddress(selectAddress){
-    if(selectedAddress)
-    {
+  function selectAddress(selectAddress) {
+    if (selectedAddress) {
       product["buyersAddress"] = selectedAddress;
       navigate("/pay", { state: { product } });
-    }
-    else
-    {
+    } else {
       alert("Please select Address");
     }
   }
 
-  
   // console.log(product)
-
 
   //Total order summary-----------
 
@@ -56,37 +51,78 @@ const CheckOut = ({ addAddress, addressData }) => {
         <div className="leftAddressContainer">
           <h3>
             1{" "}
-            <span style={{ marginLeft: "20px" }}>
+            <span style={{ marginLeft: "20px",color:'' }}>
               Select a delivery address
             </span>
           </h3>
+
+{/*----------- rightContainerForMobile---------------- */}
+          <div className="rightContainerForMobile">
+          <div className="confirmAddress">
+            <button
+              style={{ width: "100%" }}
+              onClick={() => selectAddress(product)}
+            >
+              <b>Use this address</b>
+            </button>
+            <p style={{ textAlign: "center" }}>
+              Choose a shipping address and payment method to calculate
+              shipping, handling and tax.
+            </p>
+            <hr />
+            <h3>Order Summary</h3>
+            <p>
+              Items:{" "}
+              <span style={{ marginLeft: "30px" }}>{product.length}</span>
+            </p>
+            <p>Delivery:</p>
+            <hr />
+            <h3 style={{ color: "rgb(219, 63, 36)" }}>
+              Order Total: ₹ {product.totalOrderPrice}
+            </h3>
+            <hr />
+            <br />
+          </div>
+
+{/* --------------------------------------------------------- */}
+          </div>
           <div className="checkoutAddresses">
             <h3 style={{ color: "black" }}>Your addresses</h3>
             <hr />
             {addressData.map((item) => {
               return (
                 <div key={item.id} className="addressesContainer">
-                  {item.address.map((address, index) => {
-                    return (
-                      <div className="addressCard">
-                        <p>
-                          <input type="radio" onClick={()=> setSelectedAddress(address)}/>
-                          <b>{address.name}</b>
-                          {" "+address.city},{" " + address.state} 
-                          , {address.pincode}, {address.country} <span><b>Edit address </b></span>
-                          | <span><b>Add delivery instructions</b></span>
-                        </p>
-                        <br />
-                      </div>
-                    );
-                  })}
+                  <div className="addressCard">
+                  <div>
+                  <input
+                        type="radio"
+                        onClick={() => setSelectedAddress(item)}
+                      />
+                  </div>
+                    <p>
+                      <b>{item.name + " "}</b>
+                      {item.house}, {item.area}, {item.landMark}
+                      {" " + item.city},{" " + item.state}, {item.pincode},{" "}
+                      {item.country}{" "}
+                      <span>
+                        <b>Edit address </b>
+                      </span>
+                      |{" "}
+                      <span>
+                        <b>Add delivery instructions</b>
+                      </span>
+                    </p>
+                    <br />
+                  </div>
                 </div>
               );
             })}
             <br />
             <hr />
             <div className="confirmAddress">
-              <button onClick={() => selectAddress(product)}>
+              <button 
+              style={{ width: "30%" }}
+              onClick={() => selectAddress(product)}>
                 <b>Use this address</b>
               </button>
             </div>

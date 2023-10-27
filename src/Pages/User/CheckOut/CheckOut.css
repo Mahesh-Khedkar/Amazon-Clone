@@ -50,9 +50,16 @@
 
 }
 
+.addressCard{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .addressCard p{
     color: black;
     font-weight: 10;
+    margin-left: 10px;
 }
 
 .addressesContainer .addressCard{
@@ -113,4 +120,53 @@
     padding: 0px 20px 20px 20px;
     border-radius: 10px;
     margin: 20px 0px 0px 0px;
+}
+
+
+.rightContainerForMobile{
+    display: none;
+}
+
+@media (min-width:250px) and (max-width:650px){
+
+    .checkOutBody{
+        /* border: 1px solid red; */
+    }
+
+    .checkoutBodyContent{
+        padding: 10px;
+        /* border: 1px solid red; */
+        flex-direction: column;
+    }
+
+    .leftAddressContainer{
+        width: 95% !important;
+        /* border: 1px solid red; */
+    }
+
+    .leftAddressContainer button{
+        width: 50%;
+    }
+
+    .rightContainer{
+        display: none;
+        width: 90% !important;
+        margin: 10px;
+        /* border: 1px solid red !important; */
+    }
+
+    .rightContainerForMobile{
+        width: 95%;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 7px;
+        background: transparent;
+        display: flex;
+        align-items: first baseline;
+        /* flex-direction: column; */
+        justify-content: space-evenly;
+        border: 1px solid lightgrey;
+    
+    }
+    
 }
