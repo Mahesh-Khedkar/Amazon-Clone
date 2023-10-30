@@ -16,11 +16,12 @@ import Addresses from './Pages/User/Addresses/Addresses';
 import AddAddress from './Pages/User/Addresses/AddAddress';
 import EditAddress from './Pages/User/Addresses/EditAddress';
 import Search from './Pages/Search/Search';
+import LoginAndSecurity from './Pages/User/UserAccount/LoginAndSecurity/LoginAndSecurity';
 
 
 const App = () => {
 
-//To fetch all products
+//To fetch all products-------------------------------
 const [products , setProducts] = useState();
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState(null);
@@ -119,29 +120,6 @@ useEffect(() => {
       });
   }, []);
 
-// Add address-----------
-// function addAddress(address) {
-//   // Create a copy of the userData to avoid directly modifying the state
-//   const updatedUserData = { ...userData };
-  
-//   // Add the new address to the user data's "address" array
-//   if (!updatedUserData.address) {
-//     updatedUserData.address = [];
-//   }
-//   updatedUserData.address.push(address);
-
-//   // Perform the PUT request to update the user data
-//   axios.put(`http://localhost:8000/user/${sessionStorage.getItem("userId")}`, updatedUserData)
-//     .then((response) => {
-//       // Handle the response if needed
-//       console.log("User data updated:", response.data);
-//     })
-//     .catch((error) => {
-//       // Handle errors
-//       console.error("Error updating user data:", error);
-//     });
-// } 
-
   return (
     <div>
       {/* <Home/> */}
@@ -162,6 +140,7 @@ useEffect(() => {
           <Route path="/addaddress" element={<AddAddress/>} />
           <Route path="/editaddress/:id" element={<EditAddress addressData={addressData} setAddressData={setAddressData}/>} />
           <Route path="/search/:name" element={<Search products={products}/>} />
+          <Route path="/login&security" element={<LoginAndSecurity userData={userData} setUserData={setUserData}/>} />
         </Routes>
       </BrowserRouter>
     </div>
