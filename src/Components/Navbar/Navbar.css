@@ -59,6 +59,7 @@
 .userName{
     display: flex;
     flex-direction: column;
+    /* line-height: 5px; */
 }
 
 .navSearchBox{
@@ -185,6 +186,16 @@
     .navCenter{
         /* border: 1px solid red; */
         display: none;
+    }
+
+    .mobNavSearchBox{
+        height: 45px;
+        width: 95%;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid white;
+        display: flex;
+        align-items: center;
     }
     
 }

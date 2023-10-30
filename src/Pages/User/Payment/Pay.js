@@ -78,6 +78,64 @@ const Pay = () => {
         <LockIcon style={{ color: "gray" }} />
       </div>
       <div className="checkoutBodyContent">
+
+
+{/* ------------------------RightContainer for Mobile view---------------------- */}
+
+      <div className="rightContainerForMobile">
+          <div className="confirmAddress">
+            {reviewOrder <= 0 ? (
+              <>
+                <button
+                  style={{ width: "100%" }}
+                  onClick={() => selectPayment()}
+                >
+                  <b>Use this payment method</b>
+                </button>
+                <p style={{ textAlign: "center" }}>
+                  Choose a payment method to continue checking out. You will
+                  still have a chance to review and edit your order before it is
+                  final.
+                </p>
+              </>
+            ) : (
+              <>
+                <button
+                  style={{ width: "100%" }}
+                  onClick={() => placeOrder(reviewOrder)}
+                >
+                  <b>Place your order</b>
+                </button>
+                <p style={{ textAlign: "center" }}>
+                  By placing your order, you agree to Amazon's privacy notice
+                  and conditions of use.
+                </p>
+              </>
+            )}
+            <hr />
+            <h3>Order Summary</h3>
+            <p>
+              Items:{" "}
+              <span style={{ marginLeft: "50px" }}>
+                ₹{products.totalOrderPrice}
+              </span>
+            </p>
+            <p>
+              Delivery: <span style={{ marginLeft: "30px" }}>₹{delivery}</span>
+            </p>
+            <p>
+              Total: <span style={{ marginLeft: "50px" }}>₹{total}</span>
+            </p>
+            <hr />
+            <h3 style={{ color: "rgb(219, 63, 36)" }}>
+              Order Total: ₹ {total}
+            </h3>
+            <hr />
+            <br />
+          </div>
+          </div>
+{/* ------------------------------------------------------------ */}
+
         <div className="payLeftContainer">
           <div className="deliveryAddress">
             <h3 style={{ color: "black" }}>
@@ -128,7 +186,7 @@ const Pay = () => {
             <div className="confirmAddress">
               {reviewOrder.length <= 0 ? (
                 <button
-                  style={{ width: "30%" }}
+                  style={{ width: "50%" }}
                   onClick={() => selectPayment()}
                 >
                   <b>Use this payment method</b>

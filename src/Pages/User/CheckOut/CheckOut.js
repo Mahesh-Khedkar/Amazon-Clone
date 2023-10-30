@@ -5,7 +5,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-const CheckOut = ({ addAddress, addressData }) => {
+const CheckOut = ({ addressData }) => {
   let navigate = useNavigate();
 
   const location = useLocation();
@@ -104,7 +104,7 @@ const CheckOut = ({ addAddress, addressData }) => {
                       {item.house}, {item.area}, {item.landMark}
                       {" " + item.city},{" " + item.state}, {item.pincode},{" "}
                       {item.country}{" "}
-                      <span>
+                      <span onClick={()=> navigate(`/editaddress/${item.id}`)}>
                         <b>Edit address </b>
                       </span>
                       |{" "}
@@ -126,7 +126,30 @@ const CheckOut = ({ addAddress, addressData }) => {
                 <b>Use this address</b>
               </button>
             </div>
+            
           </div>
+          <br />
+          <hr />
+          <div className="bottom">
+            <p>Need help? Check our <span>help pages</span> or <span>contact us</span></p>
+            <p>
+              When your order is placed, we'll send you an e-mail message
+              acknowledging receipt of your order. If you choose to pay using an
+              electronic payment method (credit card, debit card or net
+              banking), you will be directed to your bank's website to complete
+              your payment. Your contract to purchase an item will not be
+              complete until we receive your electronic payment and dispatch
+              your item. If you choose to pay using Pay on Delivery (POD), you
+              can pay using cash/card/net banking when you receive your item.
+            </p>
+            <p>See Amazon.in's <span>Return Policy</span>.</p>
+            <p>
+              Need to add more items to your order? Continue shopping on the
+              <span onClick={()=> navigate('/')}> Amazon.in homepage</span>.
+            </p>
+          </div>
+          <br/>
+
         </div>
         <div className="rightContainer">
           <div className="confirmAddress">

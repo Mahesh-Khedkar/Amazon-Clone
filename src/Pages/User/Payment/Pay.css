@@ -42,3 +42,46 @@
     line-height: 5px;
 
 }
+.reviewPay {
+    flex-wrap: wrap;
+}
+
+.reviewPay p{
+    line-height: 20px;
+}
+
+
+@media (min-width:250px) and (max-width:650px){
+    .checkoutAddresses{
+        width: 95%;
+        /* border: 1px solid red;
+        margin: 10px 10px 10px 10px !important; */
+    }
+
+    .confirmAddress button{
+        width: 80% !important;
+        /* border: 1px solid red; */
+    }
+
+    .payLeftContainer{
+        width: 95%;
+        line-height: 20px;
+        /* border: 1px solid red; */
+    }
+
+    .reviewPay{
+        display: flex;
+        flex-direction: column;
+        line-height: 20px;
+        /* border: 1px solid red; */
+    }
+
+    .reviewPay button{
+        padding: 10px;
+        width: 100% !important;
+    }
+
+    .reviewPay p{
+        line-height: 20px;
+    }
+}

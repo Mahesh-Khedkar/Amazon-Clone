@@ -6,8 +6,32 @@ import Footer from "../../../Components/Footer/Footer";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 
-const Addresses = ({ addressData }) => {
+const Addresses = ({ addressData, setAddressData }) => {
+
   let navigate = useNavigate();
+
+
+//Remove Address---------------------
+
+  function removeAddress(id){
+
+    addressData.forEach((item) => {
+        axios
+          .delete(`http://localhost:8000/useraddress/${id}`)
+          .then((response) => {
+            console.log("DELETE request successful", response);
+            navigate('/addresses'); 
+
+            setAddressData((prev)=>prev.filter((item)=> item.id !== id));
+
+          })
+          .catch((error) => {
+            console.error("Error making DELETE request", error);
+          });
+      // }
+    });
+
+  }
 
   return (
     <div className="userOrdersBody">
@@ -46,7 +70,7 @@ const Addresses = ({ addressData }) => {
                   <span>Add delivery instructions</span>
                   <br/>
                   <div className="addressControls">
-                    <span>Edit</span> | <span>Remove</span> |{" "}
+                    <span onClick={()=> navigate(`/editaddress/${address.id}`)}>Edit</span> | <span onClick={()=> removeAddress(address.id)}>Remove</span> |{" "}
                     <span>Set as Default</span>
                   </div>
                 </div>

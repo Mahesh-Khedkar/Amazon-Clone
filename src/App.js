@@ -14,6 +14,8 @@ import CheckOut from './Pages/User/CheckOut/CheckOut';
 import Pay from './Pages/User/Payment/Pay';
 import Addresses from './Pages/User/Addresses/Addresses';
 import AddAddress from './Pages/User/Addresses/AddAddress';
+import EditAddress from './Pages/User/Addresses/EditAddress';
+import Search from './Pages/Search/Search';
 
 
 const App = () => {
@@ -145,7 +147,7 @@ useEffect(() => {
       {/* <Home/> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home addressData={addressData}/>} />
           <Route path="/cart" element={<Cart/>} />
           <Route path="/shoppingCart" element={<ShoppingCart/>} />
           <Route path="/account" element={<Account/>} />
@@ -156,8 +158,10 @@ useEffect(() => {
           <Route path="/productdetails" element={<ProductDescription products={products} cartData={cartData}/>} />
           <Route path="/checkout" element={<CheckOut addressData={addressData}/>} />
           <Route path="/pay" element={<Pay/>} />
-          <Route path="/addresses" element={<Addresses addressData={addressData}/>} />
-          <Route path="/addaddress" element={<AddAddress userData={userData}/>} />
+          <Route path="/addresses" element={<Addresses addressData={addressData} setAddressData={setAddressData}/>} />
+          <Route path="/addaddress" element={<AddAddress/>} />
+          <Route path="/editaddress/:id" element={<EditAddress addressData={addressData} setAddressData={setAddressData}/>} />
+          <Route path="/search/:name" element={<Search products={products}/>} />
         </Routes>
       </BrowserRouter>
     </div>

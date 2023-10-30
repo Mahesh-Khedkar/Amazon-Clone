@@ -10,7 +10,7 @@ import Categories from './Categories';
 import RandomPics from './RandomPics';
 
 
-const Home = () => {
+const Home = ({addressData}) => {
 
   const [data , setData] = useState();
   const [loading, setLoading] = useState(true);
@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <div className='homeBody'>
       <div>
-        <Navbar setSearch={setSearch}/>
+        <Navbar setSearch={setSearch} addressData={addressData}/>
       </div>
       <div>
         <Slider/>

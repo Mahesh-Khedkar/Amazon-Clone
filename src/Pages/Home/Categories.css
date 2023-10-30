@@ -6,6 +6,13 @@
 
 }
 
+.forDesktopView{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .categoriesCard{
     height: 350px;
     width: 250px;
@@ -50,7 +57,7 @@
     text-decoration: none !important;
 }
 
-@media (min-width:250px) and (max-width:650px){
+@media (min-width:250px) and (max-width:550px){
 
     .categoriesBody{
         display: flex;
@@ -62,7 +69,7 @@
     
     .categoriesCard{
         height: 200px;
-        width: 45%;
+        width: 45% !important;
         margin: 5px;
         /* border: 1px solid red; */
         display: flex;

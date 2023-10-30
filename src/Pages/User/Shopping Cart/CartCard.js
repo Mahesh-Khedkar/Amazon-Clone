@@ -2,8 +2,12 @@ import React from "react";
 import "./CartCard.css";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const CartCard = ({ data, removeProduct, selectedProduct }) => {
+
+  let navigate = useNavigate();
+
   let [qty, setQty] = useState(1);
 
   //Change quantity ---------
@@ -48,7 +52,12 @@ const CartCard = ({ data, removeProduct, selectedProduct }) => {
                 <img src={item.image} alt={item.title} />
               </div>
               <div className="productDescription">
-                <h3>{item.title}</h3>
+                <h3 
+                style={{cursor:'pointer'}}
+                onClick={()=>navigate('/productdetails',{state : {item}})}
+                >
+                  {item.title}
+                </h3>
                 <p>
                   Price ₹{" "}
                   <big>

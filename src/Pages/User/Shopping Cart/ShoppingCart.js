@@ -93,6 +93,19 @@ const Cart = () => {
 
 productForOrder["totalOrderPrice"]=totalOrderValue;
 
+//validation for checkOut
+
+function checkOutValidate(){
+  if(totalOrderValue==0)
+  {
+    alert("Please Select product");
+  }
+  else
+  {
+    navigate('/checkout',{state : {productForOrder}});
+  }
+}
+
   return (
     <div className="userCartBody">
       <div>
@@ -118,7 +131,7 @@ productForOrder["totalOrderPrice"]=totalOrderValue;
             <button
               className="addToCartBtn"
               style={{ width: "98%" }}
-              onClick={()=>navigate('/checkout',{state : {productForOrder}})}
+              onClick={()=>checkOutValidate()}
             >
               Proceed to Buy
             </button>
@@ -158,7 +171,7 @@ productForOrder["totalOrderPrice"]=totalOrderValue;
             <button
               className="addToCartBtn"
               style={{ width: "98%" }}
-              onClick={()=>navigate('/checkout',{state : {productForOrder}})}
+              onClick={()=> checkOutValidate()}
             >
               Proceed to Buy
             </button>

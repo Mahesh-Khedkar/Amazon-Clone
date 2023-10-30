@@ -27,7 +27,13 @@ function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const { setSearch } = props;
+  // const { addressData } = props;
+
+  // let[addressData1, setAddressData] = useState({city:" ", pincode:" "});
+
+  // setAddressData(addressData)
+
+  let [search, setSearch] = useState("");
 
 //for navigate between pages
   let navigate = useNavigate();
@@ -108,21 +114,40 @@ function DrawerAppBar(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box sx={{ textAlign: "center" }}>
       <div
         className="drawerNavLogo"
         style={{ display: "flex" }}
         onClick={() => navigate("/")}
       >
-        <IconButton>
+        <IconButton onClick={handleDrawerToggle}>
           <big style={{ color: "black" }}>❌</big>
         </IconButton>
         <img src={NavLogo} alt="Navigation Logo" />
       </div>
-      <Divider />
+      <Divider style={{color:'black'}}/>
       <List>
         {/* {navItems.map((item) => ( */}
-        <ListItem key='' disablePadding>
+        <ListItem key='' disablePadding style={{display:'flex', flexDirection:'column'}}>
+        {/* search box for tab */}
+          <div className="mobNavSearchBox">
+            <div className="navSelector">
+              <select>
+                <option>All</option>
+                <option></option>
+              </select>
+            </div>
+            <div className="navInput">
+              <input
+                type="text"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+            <div className="navSearchIcon" onClick={()=> navigate(`/search/${search}`)}>
+              <SearchIcon />
+            </div>
+          </div>
+          {/* --------------------------------------------- */}
           <ListItemButton sx={{ textAlign: "center", display:'flex',flexDirection:'column'}}>
             <Button
               className="navbarButtons"
@@ -142,28 +167,6 @@ function DrawerAppBar(props) {
                   <ArrowDropDownIcon />
                 </span>
                 <div className="accountsDiv">
-                  {/* <div>
-                    <ul>
-                      <big className="yourAccount">
-                        <b>Your Account</b>
-                      </big>
-                      <li className="yourAccount">Your Account</li>
-                      <li id="orders" onClick={() => navigate("/orders")}>
-                        Your Orders
-                      </li>
-                      <li>Your Wish List</li>
-                      <li>Your Recommendations</li>
-                      <li>Your Prime Membership</li>
-                      <li>Your Prime Video</li>
-                      <li>Your Subscribe & Save Items</li>
-                      <li>Memberships & Subscriptions</li>
-                      <li>Your Seller Account</li>
-                      <li>Manage Your Content and Devices</li>
-                      <li>Your Free Amazon Business Account</li>
-                      <li>Switch Accounts</li>
-                      <li className="logOut" onClick={() => logout()}>Sign Out</li>
-                    </ul>
-                  </div> */}
                 </div>
               </section>
             </Button>
@@ -245,7 +248,7 @@ function DrawerAppBar(props) {
                 <span style={{ color: "white" }}>
                   Deliver to {sessionStorage.getItem("userName")}
                 </span>
-                <span style={{ color: "white" }}>Pune 411014</span>
+                {/* <span style={{ color: "white" }}>{addressData1[0].city} {addressData1[0].pincode}</span> */}
               </div>
             </div>
             <div className="navSearchBox">
@@ -261,7 +264,7 @@ function DrawerAppBar(props) {
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
-              <div className="navSearchIcon">
+              <div className="navSearchIcon" onClick={()=> navigate(`/search/${search}`)}>
                 <SearchIcon />
               </div>
             </div>
@@ -280,7 +283,7 @@ function DrawerAppBar(props) {
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
-              <div className="navSearchIcon">
+              <div className="navSearchIcon" onClick={()=> navigate(`/search/${search}`)}>
                 <SearchIcon />
               </div>
             </div>
