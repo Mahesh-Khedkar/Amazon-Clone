@@ -27,11 +27,16 @@ function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  // const { addressData } = props;
+  const { addressData } = props;
 
-  // let[addressData1, setAddressData] = useState({city:" ", pincode:" "});
+  // let[addressData1, setAddressData] = useState("city & pincode");
 
-  // setAddressData(addressData)
+  useEffect(()=>{
+    // setAddressData(addressData[0].city + " " + addressData[0].pincode)
+    // setAddressData(addressData[0].city);
+  },[])
+
+  // console.log(addressData1);
 
   let [search, setSearch] = useState("");
 
@@ -241,14 +246,15 @@ function DrawerAppBar(props) {
 
           <Box className="navCenter">
             <div className="deliver">
-              <div className="locationIcon">
+              {/* <div className="locationIcon">
                 <PlaceIcon />
-              </div>
+              </div> */}
               <div className="userName">
                 <span style={{ color: "white" }}>
-                  Deliver to {sessionStorage.getItem("userName")}
+                  Deliver to 
+                  <br/>{sessionStorage.getItem("userName")}
                 </span>
-                {/* <span style={{ color: "white" }}>{addressData1[0].city} {addressData1[0].pincode}</span> */}
+                {/* <span style={{ color: "white" }}>{addressData1}</span> */}
               </div>
             </div>
             <div className="navSearchBox">

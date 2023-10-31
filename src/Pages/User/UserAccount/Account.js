@@ -32,7 +32,7 @@ const Account = () => {
               <p>Track, return, or buy things again</p>
             </div>
           </div>
-          <div className="accountCard">
+          <div className="accountCard" onClick={()=> navigate('/login&security')}>
             <img src={Login} />
             <div>
               <h3>Login & security</h3>

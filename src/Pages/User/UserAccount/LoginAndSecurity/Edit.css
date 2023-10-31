@@ -1,0 +1,25 @@
+.editConatiner{
+    height: auto;
+    padding: 5px 15px 5px 15px;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    margin: 10px 0px 30px 0px;
+}
+
+.editCard input{
+    height: 30px !important;
+    border-radius: 5px;
+    border: 1px solid gray !important;
+    padding: 10px;
+}
+
+.SaveBtn{
+    height: 30px;
+    margin: 10px 0px 10px 0px;
+    background: rgb(252, 226, 26) !important;
+    border: rgb(248, 202, 37) !important;
+    border-radius: 5px;
+    padding: 7px;
+    width: auto !important;
+    cursor: pointer;
+}

@@ -1,0 +1,29 @@
+.securityConatiner{
+    height: auto;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+}
+
+.securityConatiner div{
+    padding: 5px 10px 5px 10px;
+}
+
+.securityCard{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.securityConatiner hr{
+    color: lightgrey !important;
+}
+
+.securityConatiner button{
+    background: transparent;
+    height: 30px;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid lightGrey;
+    box-shadow: 1px 1px lightGrey;
+    cursor: pointer;
+}

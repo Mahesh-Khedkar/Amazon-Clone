@@ -1,11 +1,11 @@
 {
   "user": [
     {
-      "id": 1,
       "userName": "Mahesh",
-      "mobileNumber": "7774967947",
       "email": "khedkarmahesh180@gmail.com",
-      "password": "12345"
+      "mobileNumber": "7774967947",
+      "password": "mahesh@123",
+      "id": 1
     },
     {
       "id": 2,
@@ -39,6 +39,19 @@
       "landMark": "Hadapsar",
       "mobileNumber": "7774967947",
       "id": 2
+    },
+    {
+      "userId": "2",
+      "name": "Guru Kumbhar",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "country": "India",
+      "pincode": "411014",
+      "area": "Rajaram patil Nagar",
+      "house": "Anna stays",
+      "landMark": "Kharadi",
+      "mobileNumber": "8999815565",
+      "id": 3
     }
   ],
   "cart": [
