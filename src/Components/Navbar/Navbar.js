@@ -47,16 +47,16 @@ function DrawerAppBar(props) {
 
 // Account and Lists navigation---------------------------------------------------------
 
-  function navigateToAccounts(){
-    if (isLoggedIn) 
-    {
-        navigate("/account");
-    } 
-    else 
-    {
-      navigate("/login"); // Redirect to the "login" page if the user is not logged in
-    }
-  };
+  // function navigateToAccounts(){
+  //   if (isLoggedIn) 
+  //   {
+  //       navigate("/account");
+  //   } 
+  //   else 
+  //   {
+  //     navigate("/login"); // Redirect to the "login" page if the user is not logged in
+  //   }
+  // };
 
 
 // Orders & Returns navigation---------------------------------------------------------
@@ -118,6 +118,13 @@ function DrawerAppBar(props) {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      navigate(`/search/${search}`);
+    }
+  };
+
+
   const drawer = (
     <Box sx={{ textAlign: "center" }}>
       <div
@@ -134,7 +141,8 @@ function DrawerAppBar(props) {
       <List>
         {/* {navItems.map((item) => ( */}
         <ListItem key='' disablePadding style={{display:'flex', flexDirection:'column'}}>
-        {/* search box for tab */}
+
+        {/*------------ search box for Mobile---------------- */}
           <div className="mobNavSearchBox">
             <div className="navSelector">
               <select>
@@ -145,10 +153,11 @@ function DrawerAppBar(props) {
             <div className="navInput">
               <input
                 type="text"
+                style={{paddingLeft:'10px'}}
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <div className="navSearchIcon" onClick={()=> navigate(`/search/${search}`)}>
+            <div className="navSearchIcon" onSubmit={()=> navigate(`/search/${search}`)}>
               <SearchIcon />
             </div>
           </div>
@@ -156,7 +165,8 @@ function DrawerAppBar(props) {
           <ListItemButton sx={{ textAlign: "center", display:'flex',flexDirection:'column'}}>
             <Button
               className="navbarButtons"
-              onClick={() => navigateToAccounts()}
+              // onClick={() => navigateToAccounts()}
+              onClick={() => (isLoggedIn?(navigate("/account")):(navigate('/login')))}
             >
               <section
                 style={{
@@ -257,6 +267,9 @@ function DrawerAppBar(props) {
                 {/* <span style={{ color: "white" }}>{addressData1}</span> */}
               </div>
             </div>
+
+            {/* -------------------search box for Desktop-------------------- */}
+
             <div className="navSearchBox">
               <div className="navSelector">
                 <select>
@@ -267,7 +280,9 @@ function DrawerAppBar(props) {
               <div className="navInput">
                 <input
                   type="text"
+                  style={{paddingLeft:'10px'}}
                   onChange={(e) => setSearch(e.target.value)}
+                  onKeyPress={handleKeyPress}
                 />
               </div>
               <div className="navSearchIcon" onClick={()=> navigate(`/search/${search}`)}>
@@ -275,7 +290,7 @@ function DrawerAppBar(props) {
               </div>
             </div>
           </Box>
-{/* search box for tab */}
+{/* -------------------search box for tab-------------------- */}
           <div className="tabNavSearchBox">
               <div className="navSelector">
                 <select>
@@ -286,6 +301,7 @@ function DrawerAppBar(props) {
               <div className="navInput">
                 <input
                   type="text"
+                  style={{paddingLeft:'10px'}}
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
@@ -297,7 +313,8 @@ function DrawerAppBar(props) {
           <Box className="NavButtons" sx={{ display: { xs: "none", sm: "flex" } }}>
             <button
               className="navbarButtons"
-              onClick={() => navigateToAccounts()}
+              // onClick={() => navigateToAccounts()}
+              onClick={() => (isLoggedIn?(navigate("/account")):(navigate('/login')))}
             >
               <section
                 style={{
@@ -321,7 +338,9 @@ function DrawerAppBar(props) {
                         <b>Your Account</b>
                       </big>
                       <li className="yourAccount">Your Account</li>
-                      <li id="orders" onClick={() => navigate("/orders")}>
+                      <li id="orders" 
+                      onClick={() => (isLoggedIn?(navigate("/orders")):(navigate('/login')))}
+                      >
                         Your Orders
                       </li>
                       <li>Your Wish List</li>
@@ -353,7 +372,8 @@ function DrawerAppBar(props) {
 
             <button
               className="navbarButtons"
-              onClick={() => navigateToOrders()}
+              // onClick={() => navigateToOrders()}
+              onClick={() => (isLoggedIn?(navigate("/orders")):(navigate('/login')))}
             >
               <section
                 style={{

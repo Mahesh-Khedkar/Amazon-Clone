@@ -7,7 +7,6 @@ import Account from './Pages/User/UserAccount/Account';
 import Login from './Pages/Forms/User/Login/Login';
 import Register from './Pages/Forms/User/Register/Register';
 import Orders from './Pages/User/Orders/UserOrders';
-import ShopByCategories from './Pages/Home/ShopByCategories';
 import ProductDescription from './Pages/Home/ProductDescription/ProductDescription';
 import axios from 'axios';
 import CheckOut from './Pages/User/CheckOut/CheckOut';
@@ -18,6 +17,7 @@ import EditAddress from './Pages/User/Addresses/EditAddress';
 import Search from './Pages/Search/Search';
 import LoginAndSecurity from './Pages/User/UserAccount/LoginAndSecurity/LoginAndSecurity';
 import Edit from './Pages/User/UserAccount/LoginAndSecurity/Edit';
+import ShopByCategories from './Pages/Home/Categories/ShopByCategories';
 
 
 const App = () => {

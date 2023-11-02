@@ -2,12 +2,12 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: left;
     height: auto;
 }
 
 .randomPicsCardContainer{
-    height: 400px;
+    height: auto;
     width: 340px;
     background: white;
     display: flex;
@@ -20,24 +20,24 @@
     margin: 5px;
     object-fit: cover;
     /* border: 1px solid red; */
+    cursor: pointer;
 }
 
-.randomPicsCard{
-    height: 52%;
-    width: 47%;
-    /* border: 1px solid red; */
-    margin: 3px;
-    font-size: 13px;
+
+
+@media (min-width:250px) and (max-width:600px){
+    .randomPicsBody{
+        flex-direction: column;
+    }
+    
+    .randomPicsCardContainer{
+        height: auto;
+        width: 100%;
+    }
 }
 
-.cards{
-    height: auto;
-    margin-top: -15px;
-    display: flex;
-    flex-wrap: wrap;
-    /* border: 1px solid red; */
-}
-.randomPicsCard img{
-    width: 100%;
-    height: 96;
+/* --------CSS for Tab---- */
+
+@media (min-width:600px) and (max-width:950px){
+
 }

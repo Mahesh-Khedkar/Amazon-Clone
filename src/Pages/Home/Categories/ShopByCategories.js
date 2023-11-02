@@ -1,8 +1,8 @@
 import React from "react";
 import "./ShopByCategories";
-import Navbar from "../../Components/Navbar/Navbar";
-import Footer from "../../Components/Footer/Footer";
-import Card from "../../Components/Card/Card";
+import Navbar from "../../../Components/Navbar/Navbar";
+import Footer from "../../../Components/Footer/Footer";
+import Card from "../../../Components/Card/Card";
 import { useParams } from "react-router-dom";
 import { useState } from 'react';
 import { useEffect } from 'react';

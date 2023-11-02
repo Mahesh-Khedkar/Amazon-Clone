@@ -6,8 +6,7 @@ import Footer from '../../Components/Footer/Footer';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import Categories from './Categories';
-import RandomPics from './RandomPics';
+import RandomPics from './Categories/RandomPics';
 
 
 const Home = ({addressData}) => {
@@ -46,14 +45,14 @@ const Home = ({addressData}) => {
         <Slider/>
       </div>
       <div className='categoriesContainer'>
-        <h2 style={{color:'white', marginBottom:'-10px'}}>Shop by Categories</h2>
-        <Categories data={data}/>
+        {/* <h2 style={{color:'white', marginBottom:'-10px'}}>Shop by Categories</h2> */}
+        <RandomPics products={data}/>
       </div>
-      <div className='randomPicsContainer'>
+      {/* <div className='randomPicsContainer'>
         <div>
-          <RandomPics/>
+          <RandomPics products={data}/>
         </div>
-      </div>
+      </div> */}
       <div className='cardSection'>
       {/* {
         loading

@@ -70,7 +70,7 @@ export default function ImgMediaCard({ data, search, categoryName }) {
   return (
     <div className="cardBody">
       {data &&
-        data.filter((item) => item.category.toLowerCase().startsWith(categoryName)).map((item) => {
+        data.filter((item) => item.category.toLowerCase().startsWith(categoryName.toLowerCase())).map((item) => {
           return (
             <div style={{ margin: "10px" }} key={item.pId}>
               <Card

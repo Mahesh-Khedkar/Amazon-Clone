@@ -13,7 +13,7 @@ const AddAddress = () => {
 
   //Add a new address--------------------
 
-  let [country, setCountry] = useState("");
+  let [country, setCountry] = useState("India");
   let [fullName, setFullName] = useState("");
   let [mobileNumber, setMobileNumber] = useState("");
   let [pinCode, setPinCode] = useState("");
@@ -98,8 +98,10 @@ const AddAddress = () => {
                   </label>
                 </div>
                 <div className="addressInput">
-                  <select className="selectCountry" onChange={(e) => setCountry(e.target.value)}>
-                    <option>Select Country</option>
+                  <select className="selectCountry" 
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}>
+                    {/* <option>Select Country</option> */}
                     <option value={"India"}>India</option>
                     <option value={"Iraq"}>Iraq</option>
                     <option value={"Indonesia"}>Indonesia</option>

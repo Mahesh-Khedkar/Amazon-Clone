@@ -16,7 +16,8 @@ const Search = ({ products }) => {
   useEffect(() => {
     // Filter the products based on the search query (name)
     const filteredData = products.filter((item) =>
-      item.title.toLowerCase().includes(name.toLowerCase())
+      item.title.toLowerCase().includes(name)
+      // item.category.toLowerCase().startsWith(name.toLowerCase());
     );
     setSearchData(filteredData);
   }, [name, products]);

@@ -46,7 +46,7 @@ const Login = () => {
 
     data && data.forEach((user) =>
     {      
-      if (inputUserId === user.userName && pass === user.password) {
+      if (inputUserId === user.userName && pass === user.password || inputUserId===user.email) {
         isValid = true;
         // Store username and password in session storage
 
@@ -54,9 +54,9 @@ const Login = () => {
         // sessionStorage.setItem("password", pass);
         sessionStorage.setItem("userId", user.id);
         sessionStorage.setItem("userName", user.userName);
-        sessionStorage.setItem("userMobile", user.mobileNumber);
+        // sessionStorage.setItem("userMobile", user.mobileNumber);
         sessionStorage.setItem("userEmail", user.email);
-        sessionStorage.setItem("userPassword", user.password);
+        // sessionStorage.setItem("userPassword", user.password);
 
         let x = sessionStorage.getItem("userName");
         console.log(x);
@@ -103,7 +103,7 @@ const Login = () => {
             >
               <div className='loginLabel'>
                 <label>
-                  <b>Email or mobile phone number</b>
+                  <b>Email or User name</b>
                 </label>
               </div>
               <div className='loginInput'>

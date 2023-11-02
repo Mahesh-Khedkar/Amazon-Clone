@@ -53,6 +53,7 @@ const Register = () => {
   let [mobileNumber, setMobileNumber] = useState('');
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('');
+  let [countryCode, setCountryCode] = useState("+91");
 
   // validation of user
   function validateRegistration(inputUserName, inputMobileNumber, inputEmail, inputPassword) {
@@ -75,7 +76,7 @@ const Register = () => {
       // If you want to make a POST request, you can do it here
       const postData = {
         userName: inputUserName,
-        mobileNumber: mobileNumber,
+        mobileNumber: countryCode+mobileNumber,
         email: email,
         password: password
       };
@@ -93,21 +94,6 @@ const Register = () => {
       // You can navigate to the desired page here
       navigate('/login');
       alert("User Registered successfully..!");
-
-  //for creation of cart table for new users
-
-
-      // axios
-      // .post("http://localhost:8000/cart/", userid)
-      // .then((response) => {
-      //   console.log("POST request successful", response);
-      //   // Redirect or perform any other action as needed
-      // })
-      // .catch((error) => {
-      //   // Handle errors from the POST request
-      //   console.error("Error making POST request", error);
-      // });
-
     } 
     else {
       console.log("Invalid username or Pass");
@@ -152,8 +138,20 @@ const Register = () => {
                 </label>
               </div>
               <div className='loginInput'>
+                <select
+                style={{marginRight:'2px'}}
+                onChange={(e) => setCountryCode(e.target.value)}
+                value={countryCode}
+                >
+                  <option>+91</option>
+                  <option>+92</option>
+                  <option>+93</option>
+                </select>
                 <input type='text' placeholder='Mobile number'
                 onChange={(e) => setMobileNumber(e.target.value)}
+                id='mobileNum'
+                minLength={10}
+                maxLength={10}
                 >
                 
                 </input>
@@ -174,9 +172,10 @@ const Register = () => {
                 </label>
               </div>
               <div className='loginInput' placeholder='At least 6 characters' onChange={(e) => setPassword(e.target.value)}>
-                <input type='password'>
-                
-                </input>
+              <input type='password' 
+              minLength={6} 
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=]).{6,}$" 
+              />
               </div>
               <p><span style={{marginRight:'10px'}}><i><b>i </b> </i></span> Password must be at least 6 characters.</p>
               <p>
